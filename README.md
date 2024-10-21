@@ -14,6 +14,18 @@
 
 ## Installation
 
+### Backend
+
+To build and run the backend of this project, run the following commands in the project's root directory:
+
+``` sh
+docker build -t rota-da-cultura-backend .
+```
+
+``` sh
+docker run -p 8080:8080 rota-da-cultura-backend
+```
+
 ## Usage
 
 ## License
