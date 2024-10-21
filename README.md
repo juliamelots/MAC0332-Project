@@ -12,7 +12,17 @@
 
 ## Roadmap
 
-## Installation
+## Building & running
+
+To build and run the project, simply run the following commands on the project root directory:
+
+``` sh
+docker build -t rota-da-cultura-app .
+```
+
+``` sh
+docker run -p 8080:8080 rota-da-cultura-app
+```
 
 ## Usage
 
