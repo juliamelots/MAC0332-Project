@@ -1,4 +1,4 @@
-# --- BACKEND ---
+# --- BACKEND PROD SETUP ---
 # Specify the base image for Ktor backend
 FROM gradle:8.10.2-jdk17 AS backend-build
 
