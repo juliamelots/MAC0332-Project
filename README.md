@@ -18,12 +18,14 @@
 
 To build and run the backend of this project, run the following commands in the project's root directory:
 
+- for *development* build:
 ``` sh
-docker build -t rota-da-cultura-backend .
+docker-compose up backend-dev
 ```
 
+- for *production* build:
 ``` sh
-docker run -p 8080:8080 rota-da-cultura-backend
+docker-compose up backend-prod
 ```
 
 ## Usage
