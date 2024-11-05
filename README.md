@@ -14,6 +14,20 @@
 
 ## Installation
 
+### Backend
+
+To build and run the backend of this project, run the following commands in the project's root directory:
+
+- for *development* build:
+``` sh
+docker-compose up backend-dev
+```
+
+- for *production* build:
+``` sh
+docker-compose up backend-prod
+```
+
 ## Usage
 
 ## License

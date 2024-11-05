@@ -1,0 +1,17 @@
+# --- BACKEND DEV SETUP ---
+# Specify the base image for Ktor backend
+FROM gradle:8.10.2-jdk17 AS backend-dev
+
+WORKDIR /app
+
+# Copy the backend's build.gradle and settings.gradle
+COPY build.gradle.kts settings.gradle.kts ./
+
+# Copy backend source files
+COPY . .
+
+# Expose the development port
+EXPOSE 8080
+
+# Set the entry point to run the Ktor application
+CMD ["gradle", "run"]
