@@ -1,4 +1,5 @@
-function Movies() {
+function MoviesPage() {
+  {/* TODO: Remove constant and call back-end */}
   const movies = [
     { title: 'The Bridges of Madison County', id: 1 },
     { title: 'Forrest Gump', id: 2 },
@@ -6,8 +7,8 @@ function Movies() {
   ];
 
   const moviesGrid = movies.map(movie =>
-    <div style={{ width: '100px', height: '80px' }}>
-      {/* {movie.title} */}
+    <div className="movie-poster">
+      {movie.title}
     </div>
   );
 
@@ -15,6 +16,7 @@ function Movies() {
     <div className="h-100 d-flex flex-column bg-black">
       <div className="w-100 h-25 bg-red">
         <h1 className="text-center text-white">Filmes</h1>
+        {/* TODO: Add search bar */}
       </div>
 
       <div className="w-100 h-75 d-flex flex-row flex-wrap">
@@ -24,4 +26,4 @@ function Movies() {
   )
 }
 
-export default Movies
+export default MoviesPage
