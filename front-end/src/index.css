@@ -6,3 +6,11 @@ html, body {
 #root {
   height: 100%;
 }
+
+.bg-red {
+  background-color: #873838;
+}
+
+.bg-black {
+  background-color: #0F0F0F;
+}
