@@ -1,0 +1,63 @@
+### Ktor ###
+
+build
+.gradle
+.gradletasknamecache
+.idea/*
+!.idea/runConfigurations
+!.idea/runConfigurations/*
+!.idea/vcs.xml
+!.idea/dictionaries
+!.idea/dictionaries/*
+!.idea/copyright
+!.idea/copyright/*
+!.idea/icon.svg
+out
+*.iml
+.vscode
+
+*.versionsBackup
+*.releaseBackup
+release.properties
+local.properties
+*.swp
+
+.video
+.attach_pid*
+apidoc
+
+
+bin/
+.settings
+.project
+.classpath
+.konan
+
+.DS_Store
+
+hs_err_pid*.log
+
+gradle-user-home
+
+.fleet
+.kotlin
+
+scan-journal.log
+
+### Gradle ###
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+
+# End of https://www.gitignore.io/api/java,gradle
