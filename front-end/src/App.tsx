@@ -1,10 +1,18 @@
-import { useState } from 'react'
-import Movies from './components/Movies'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "@/pages/home/HomePage";
+import Movie from "@/pages/movie/MoviePage";
+
+import './App.css'
 
 function App() {
   return (
     <>
-    <Movies />
+      <Router>
+        <Routes>
+          <Route path = "/" element = {<Home />} />
+          <Route path = "/movie" element = {<Movie />} />
+        </Routes>
+      </Router>
     </>
   )
 }
