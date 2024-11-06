@@ -46,3 +46,19 @@ nav {
   font-size: 1rem;
   background-color: none;
 }
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.bg-red {
+  background-color: #873838;
+}
+
+.bg-black {
+  background-color: #0F0F0F;
+}

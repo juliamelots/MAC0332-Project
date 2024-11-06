@@ -2,7 +2,7 @@ import React from 'react'
 
 function MoviePage() {
   return (
-    <div>filmes</div>
+    <div>Filme específico</div>
   )
 }
 
