@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-:root {
+html, body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
   font-family: "Roboto", sans-serif;
 }
 
-nav {
+.bg-red {
   background-color: #873838;
+}
+
+.bg-black {
+  background-color: #0F0F0F;
 }
 
 .navbar-item {
@@ -17,26 +26,25 @@ nav {
   font-size: 1.2rem; 
 }
 
-#custom-search-input{
+#custom-search-input {
   padding: 4px;
   border: solid 1px #E4E4E4;
   border-radius: 6px;
   background-color: #fff;
 }
 
-#custom-search-input input{
+#custom-search-input input {
   border: 0;
   box-shadow: none;
 }
 
-#custom-search-input button{
+#custom-search-input button {
   box-shadow: none;
   border: 0;
-  background-color: #873838;
   color: #fff;
 }
 
-#custom-search-input button:hover{
+#custom-search-input button:hover {
   border: 0;
   box-shadow: none;
   background-color: #954d4d;
@@ -45,20 +53,4 @@ nav {
 .btn-icon {
   font-size: 1rem;
   background-color: none;
-}
-
-html, body {
-  height: 100%;
-}
-
-#root {
-  height: 100%;
-}
-
-.bg-red {
-  background-color: #873838;
-}
-
-.bg-black {
-  background-color: #0F0F0F;
 }
