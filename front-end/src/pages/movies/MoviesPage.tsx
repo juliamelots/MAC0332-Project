@@ -1,25 +1,26 @@
+import './MoviesPage.css';
+
 function MoviesPage() {
   {/* TODO: Remove constant and call back-end */}
   const movies = [
-    { title: 'The Bridges of Madison County', id: 1 },
-    { title: 'Forrest Gump', id: 2 },
-    { title: 'Top Gun', id: 3 },
+    { title: 'As Pontes de Madison', posterUrl: 'https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/90/74/20119562.jpg' },
+    { title: 'Forrest Gump - O Contador de Histórias', posterUrl: 'https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/87/30/21/19874092.jpg' },
+    { title: 'Top Gun: Maverick', posterUrl: 'https://br.web.img3.acsta.net/c_310_420/pictures/19/12/16/15/00/5548914.jpg' },
   ];
 
-  const moviesGrid = movies.map(movie =>
-    <div className="movie-poster">
-      {movie.title}
+  const moviesGrid = movies.map((movie) =>
+    <div>
+      <img src={movie.posterUrl} alt={'Cartaz de \"' + movie.title + '\"'} className="movie-poster" />
     </div>
   );
 
   return (
-    <div className="h-100 d-flex flex-column bg-black">
+    <div className="h-100 d-flex flex-column">
       <div className="w-100 h-25 bg-red">
         <h1 className="text-center text-white">Filmes</h1>
-        {/* TODO: Add search bar */}
       </div>
 
-      <div className="w-100 h-75 d-flex flex-row flex-wrap">
+      <div id="movies-container" className="w-100 h-75 bg-black">
         {moviesGrid}
       </div>
     </div>

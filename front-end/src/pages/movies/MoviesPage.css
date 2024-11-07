@@ -1,5 +1,18 @@
 .movie-poster {
-  width: 100px;
-  height: 80px;
-  margin-right: 5px;;
+  /* Official movie poster proportions: 2592 x 3840 pixels */
+  width: 130px;
+  height: 190px;
+}
+
+.movie-poster:hover {
+  filter: opacity(75%);
+}
+
+#movies-container {
+  padding: 3rem;
+  display: grid;
+  justify-content: space-evenly; /* Acts as responsive gap */
+  grid-template-columns: repeat(auto-fill, 130px);
+  gap: 3rem; /* Acts as minimum gap */
+  
 }
