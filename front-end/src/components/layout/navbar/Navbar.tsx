@@ -21,7 +21,7 @@ const Navbar = () => {
                     </Link>
                     <Link
                         className="nav-item d-flex align-items-center mx-2 text-decoration-none"
-                        to="/movie"
+                        to="/movies"
                     >
                         <span className="btn navbar-item btn-light nav-link px-2 text-center d-flex align-items-center">
                             <i className="bi bi-film me-2"></i>
