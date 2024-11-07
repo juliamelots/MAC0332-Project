@@ -22,7 +22,8 @@ function HomePage() {
           style={{ maxWidth: '250px', width: '100%' }}
           onClick={routeChange}
         >
-          <span role="img" aria-label="movie icon">🎬</span> Veja todos os filmes
+          <i className="bi bi-film me-2"></i>
+          Veja todos os filmes
         </button>
       </div>
 
