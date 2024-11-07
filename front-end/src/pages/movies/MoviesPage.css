@@ -1,11 +1,32 @@
-.movie-poster {
+.movie-poster-size {
   /* Official movie poster proportions: 2592 x 3840 pixels */
   width: 130px;
   height: 190px;
 }
 
+.movie-title {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+  font-size: small;
+  font-weight: 300;
+  color: white;
+  background-color: #873838;
+}
+
+.movie-poster {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
 .movie-poster:hover {
-  filter: opacity(75%);
+  filter: opacity(70%);
+}
+
+.movie-poster:hover + .movie-title {
+  visibility: visible;
 }
 
 #movies-container {
@@ -14,5 +35,4 @@
   justify-content: space-evenly; /* Acts as responsive gap */
   grid-template-columns: repeat(auto-fill, 130px);
   gap: 3rem; /* Acts as minimum gap */
-  
 }

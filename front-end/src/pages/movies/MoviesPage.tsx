@@ -9,8 +9,9 @@ function MoviesPage() {
   ];
 
   const moviesGrid = movies.map((movie) =>
-    <div>
-      <img src={movie.posterUrl} alt={'Cartaz de \"' + movie.title + '\"'} className="movie-poster" />
+    <div className="movie-poster-size position-relative d-flex justify-content-center">
+      <img src={movie.posterUrl} alt={'Cartaz de \"' + movie.title + '\"'} className="movie-poster-size movie-poster" />
+      <p className="movie-title text-center">{movie.title}</p>
     </div>
   );
 
