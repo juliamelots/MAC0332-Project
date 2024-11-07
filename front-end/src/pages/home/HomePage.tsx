@@ -1,3 +1,4 @@
+import SearchBar from "@/components/layout/search-bar/SearchBar";
 import { useNavigate } from "react-router-dom";
 
 function HomePage() {
@@ -31,17 +32,7 @@ function HomePage() {
       >
         <h2 className="fs-3 py-4">Busca por filmes</h2>
         <div className="d-flex mx-auto" style={{ maxWidth: '600px' }}>
-          <input
-            type="text"
-            placeholder="Procure filmes por título..."
-            className="form-control"
-          />
-          <button 
-            className="btn text-white bg-red" 
-            style={{ marginLeft: '10px' }}
-          >
-            Pesquisar
-          </button>
+          <SearchBar placeholder="Procure filmes por título..."/>
         </div>
       </div>
     </div>
