@@ -1,8 +1,8 @@
 #movies-container {
   padding: 3rem;
   display: grid;
-  justify-content: space-evenly; /* Acts as responsive gap */
   grid-template-columns: repeat(auto-fill, 130px);
+  justify-content: space-evenly; /* Acts as responsive gap */
   gap: 3rem; /* Acts as minimum gap */
 }
 
@@ -13,24 +13,31 @@
 }
 
 .movie-title {
+  /* Overlay movie poster with movie title */
   visibility: hidden;
   position: absolute;
   bottom: 0px;
   z-index: 1;
-  
+
+  /* Movie title style */
   font-size: small;
   color: white;
   background-color: #873838;
 }
 
 .movie-poster {
+  /* Overlay movie poster with movie title */
   position: absolute;
   top: 0px;
   left: 0px;
+
+  /* Movie poster style */
+  border-radius: 2%;
 }
 
 .movie-poster:hover {
-  filter: opacity(70%);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px white;
 }
 
 .movie-poster:hover + .movie-title {

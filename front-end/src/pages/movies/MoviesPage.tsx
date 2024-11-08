@@ -1,3 +1,5 @@
+import Navbar from '@/components/layout/navbar/Navbar';
+import SearchBarWithFilter from '@/components/layout/search-bar-with-filter/SearchBarWithFilter';
 import './MoviesPage.css';
 
 function MoviesPage() {
@@ -16,15 +18,19 @@ function MoviesPage() {
   );
 
   return (
-    <div className="h-100 d-flex flex-column">
-      <div className="w-100 h-25 bg-red">
-        <h1 className="text-center text-white">Filmes</h1>
-      </div>
+    <>
+      <Navbar />
+      <div className="h-100 d-flex flex-column">
+        <div className="w-100 h-25 bg-red">
+          <h1 className="text-center text-white">Filmes</h1>
+          <SearchBarWithFilter />
+        </div>
 
-      <div id="movies-container" className="w-100 h-75 bg-black">
-        {moviesGrid}
+        <div id="movies-container" className="w-100 h-75 bg-black">
+          {moviesGrid}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
