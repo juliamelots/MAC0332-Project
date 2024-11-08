@@ -23,7 +23,7 @@ function MoviesPage() {
       <div className="h-100 d-flex flex-column">
         <div className="w-100 h-25 bg-red">
           <h1 className="text-center text-white">Filmes</h1>
-          <SearchBarWithFilter />
+          <SearchBarWithFilter /> {/* TODO: Add searching mechanism */}
         </div>
 
         <div id="movies-container" className="w-100 h-75 bg-black">

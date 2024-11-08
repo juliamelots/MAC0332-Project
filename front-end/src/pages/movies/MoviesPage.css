@@ -21,8 +21,8 @@
 
   /* Movie title style */
   font-size: small;
-  color: white;
-  background-color: #873838;
+  color: var(--ac-white);
+  background-color: var(--ac-red);
 }
 
 .movie-poster {
@@ -37,7 +37,7 @@
 
 .movie-poster:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 20px var(--ac-white);
 }
 
 .movie-poster:hover + .movie-title {

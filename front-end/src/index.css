@@ -7,14 +7,21 @@ html, body {
 #root {
   height: 100%;
   font-family: "Roboto", sans-serif;
+
+  /* Absolute cinema color variables */
+  --ac-red: #873838;
+  --ac-red-light: #9F5F5F;
+  --ac-red-dark: #6C2C2C;
+  --ac-black: #0F0F0F;
+  --ac-white: #fff;
 }
 
 .bg-red {
-  background-color: #873838;
+  background-color: var(--ac-red);
 }
 
 .bg-black {
-  background-color: #0F0F0F;
+  background-color: var(--ac-black);
 }
 
 .navbar-item {

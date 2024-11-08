@@ -6,8 +6,7 @@ const SearchBarWithFilter = () => {
                     <i className="bi bi-search me-2 input-group-text btn-icon text-center"></i>
                     <input type="text" className="form-control input-lg" placeholder="Buscar" />
                     <span className="input-group-btn">
-                        {/* TODO: Change funnel button icon (to which color?) */}
-                        <button className="btn btn-info" type="button">
+                        <button className="btn btn-info" type="button"> {/* TODO: Change funnel button color */}
                             <i className="bi bi-funnel btn-icon"></i>
                         </button>
                     </span>
