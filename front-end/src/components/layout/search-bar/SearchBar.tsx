@@ -1,5 +1,7 @@
 import { React } from 'react';
 
+import './SearchBar.css';
+
 interface SearchBarProps {
   placeholder: string;
   showFilter: boolean;
@@ -8,7 +10,7 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
   return (
     <div className="input-group my-1 py-1 d-flex justify-content-center align-center w-100">
-      <div id="custom-search-input" className="w-75 bg-ac-red">
+      <div id="search-input" className="w-75 bg-ac-red">
         <div className="input-group col-md-12">
           <input type="text" className="form-control input-lg" placeholder={props.placeholder} />
           <span className="input-group-btn">

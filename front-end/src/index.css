@@ -37,18 +37,6 @@ html, body {
   --bs-btn-hover-bg: var(--ac-black-light) !important;
 }
 
-#custom-search-input {
-  padding: 4px;
-  border: solid 1px #E4E4E4;
-  border-radius: 6px;
-  background-color: #fff;
-}
-
-#custom-search-input input {
-  border: 0;
-  box-shadow: none;
-}
-
 .btn-icon {
   font-size: 1rem;
   background-color: none;

@@ -1,0 +1,11 @@
+#search-input {
+    padding: 4px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+  }
+  
+  #search-input input {
+    border: 0;
+    box-shadow: none;
+  }

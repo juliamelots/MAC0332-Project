@@ -23,7 +23,7 @@ function MoviesPage() {
       <Navbar />
       <div className="h-100 d-flex flex-column">
         <div className="w-100 h-25 bg-ac-red">
-          <h1 className="text-center text-white">Filmes</h1>
+          <h1 className="text-center text-white mt-2 mb-5">Filmes</h1>
           <SearchBar placeholder="Procure filmes por título" showFilter={true}/> {/* TODO: Add searching mechanism */}
         </div>
 
