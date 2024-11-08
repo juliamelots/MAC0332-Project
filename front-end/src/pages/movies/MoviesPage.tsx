@@ -1,5 +1,6 @@
 import Navbar from '@/components/layout/navbar/Navbar';
-import SearchBarWithFilter from '@/components/layout/search-bar-with-filter/SearchBarWithFilter';
+import SearchBar from '@/components/layout/search-bar/SearchBar';
+
 import './MoviesPage.css';
 
 function MoviesPage() {
@@ -21,12 +22,12 @@ function MoviesPage() {
     <>
       <Navbar />
       <div className="h-100 d-flex flex-column">
-        <div className="w-100 h-25 bg-red">
+        <div className="w-100 h-25 bg-ac-red">
           <h1 className="text-center text-white">Filmes</h1>
-          <SearchBarWithFilter /> {/* TODO: Add searching mechanism */}
+          <SearchBar placeholder="Procure filmes por título" showFilter={true}/> {/* TODO: Add searching mechanism */}
         </div>
 
-        <div id="movies-container" className="w-100 h-75 bg-black">
+        <div id="movies-container" className="w-100 h-75 bg-ac-black">
           {moviesGrid}
         </div>
       </div>

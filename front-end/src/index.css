@@ -13,24 +13,28 @@ html, body {
   --ac-red-light: #9F5F5F;
   --ac-red-dark: #6C2C2C;
   --ac-black: #0F0F0F;
+  --ac-black-light: #3F3F3F;
   --ac-white: #fff;
 }
 
-.bg-red {
+.bg-ac-red {
   background-color: var(--ac-red);
 }
 
-.bg-black {
+.bg-ac-black {
   background-color: var(--ac-black);
 }
 
-.navbar-item {
-  color: #fff;
+.btn-ac-red {
+  /* Use alongside boostrap 'btn' class */
+  --bs-btn-bg: var(--ac-red) !important;
+  --bs-btn-hover-bg: var(--ac-red-light) !important;
 }
 
-#navbar-logo {
-  color: #fff;
-  font-size: 1.2rem; 
+.btn-ac-black {
+  /* Use alongside boostrap 'btn' class */
+  --bs-btn-bg: var(--ac-black) !important;
+  --bs-btn-hover-bg: var(--ac-black-light) !important;
 }
 
 #custom-search-input {
@@ -43,18 +47,6 @@ html, body {
 #custom-search-input input {
   border: 0;
   box-shadow: none;
-}
-
-#custom-search-input button {
-  box-shadow: none;
-  border: 0;
-  color: #fff;
-}
-
-#custom-search-input button:hover {
-  border: 0;
-  box-shadow: none;
-  background-color: #954d4d;
 }
 
 .btn-icon {
