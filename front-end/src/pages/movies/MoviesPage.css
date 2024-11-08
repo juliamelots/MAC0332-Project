@@ -1,5 +1,45 @@
+#movies-container {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 130px);
+  justify-content: space-evenly; /* Acts as responsive gap */
+  gap: 3rem; /* Acts as minimum gap */
+}
+
+.movie-poster-size {
+  /* Official movie poster proportions: 2592 x 3840 pixels */
+  width: 130px;
+  height: 190px;
+}
+
+.movie-title {
+  /* Overlay movie poster with movie title */
+  visibility: hidden;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+
+  /* Movie title style */
+  font-size: small;
+  color: var(--ac-white);
+  background-color: var(--ac-red);
+}
+
 .movie-poster {
-  width: 100px;
-  height: 80px;
-  margin-right: 5px;;
+  /* Overlay movie poster with movie title */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  /* Movie poster style */
+  border-radius: 2%;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--ac-white);
+}
+
+.movie-poster:hover + .movie-title {
+  visibility: visible;
 }
