@@ -16,4 +16,4 @@ const SearchBarWithFilter = () => {
     )
   }
   
-  export default SearchBarWithFilter;
+export default SearchBarWithFilter
