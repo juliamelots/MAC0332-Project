@@ -1,0 +1,36 @@
+.movie-details-title {
+    color: #fff;
+    font-weight: 700;
+    font-size: 48px;   
+}
+
+.movie-card-cast {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-right: 15px;
+}
+
+.movie-poster-detail {
+    width: 100%;           
+    height: 100vh;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+}
+
+.icon-geo {
+    font-size: 2.1rem; 
+    color: var(--ac-gray);
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.btn-movie-theater {
+    background-color: var(--ac-gray);
+    margin-left: 10px;
+    border: none;
+}
+
+.btn-movie-theater:hover {
+    background-color: var(--ac-gray-dark);
+}
