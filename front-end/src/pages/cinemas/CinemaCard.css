@@ -1,37 +1,28 @@
 .card-container {
   border-radius: 10px;
-  background-color: #ffffff;
   margin: 400px;
 }
 
 .home-address-icon {
-  background-color: #ECECEC;
   border-radius: 50%;
   padding: 8px;
-  color: black;
   display: inline-flex;
 }
 
 .destination-address-icon {
-  background-color: #FFF0F0;
   border-radius: 50%;
   padding: 8px;
-  color: #873838;
   display: inline-flex;
 }
 
 .generic-info-icon {
-  background-color: #F7F5FF;
   border-radius: 20%;
   padding: 8px;
-  color: #873838;
   display: inline-flex;
 }
 
 .transportation-icon {
-  background-color: #FFFCDE;
   border-radius: 20%;
   padding: 8px;
-  color: #B6B10F;
   display: inline-flex;
 }
