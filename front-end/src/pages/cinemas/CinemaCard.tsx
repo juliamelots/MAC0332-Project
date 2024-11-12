@@ -32,11 +32,10 @@ const CinemaCard = ({
         </div>
         <div className="d-flex flex-column my-1">
           <div className="d-flex align-items-center">
-            <i className="bi bi-ticket-detailed generic-info-icon icon-bg-purple"></i>
-            <span className="text-muted ms-3">Preço</span>
-          </div>
-          <div>
-            <h6 className="text-dark ms-5">{price}</h6>
+            <button type="button"
+              class="btn btn-outline-dark">
+              <i class="bi bi-plus-circle"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -92,7 +91,7 @@ const CinemaCard = ({
       </div>
 
       {/* Generic details: commuting time, smallest distance etc. */}
-      <div className="d-flex justify-content-start my-3" style={{ gap: '80px' }}>
+      <div className="d-flex justify-content-start my-3" style={{ gap: '70px' }}>
         <div className="d-flex flex-column">
           <div className="d-flex align-items-center my-1">
             <i className="bi bi-clock-fill generic-info-icon icon-bg-purple"></i>
@@ -110,6 +109,15 @@ const CinemaCard = ({
           </div>
           <div>
             <h6 className="text-dark ms-5">{commuteInfo.shortestDistance}</h6>
+          </div>
+        </div>
+        <div className="d-flex flex-column">
+          <div className="d-flex align-items-center my-1">
+            <i className="bi bi-ticket-detailed generic-info-icon icon-bg-purple"></i>
+            <span className="text-muted ms-3">Preço</span>
+          </div>
+          <div>
+            <h6 className="text-dark ms-5">{price}</h6>
           </div>
         </div>
       </div>
