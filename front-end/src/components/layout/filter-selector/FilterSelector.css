@@ -1,0 +1,26 @@
+.filter-selector-container {
+  width: 200px;
+}
+
+.filter-selector-button {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  color: #7a7a7a;
+  border: white;
+  border-radius: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-selector-button i {
+  font-size: 18px;
+  color: rgb(119, 115, 115);
+  margin-left: 10px;
+}
+
+.dropdown-menu {
+  padding: 0;
+}
