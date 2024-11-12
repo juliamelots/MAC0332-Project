@@ -8,7 +8,7 @@ html, body {
   height: 100%;
   font-family: "Roboto", sans-serif;
 
-  /* Absolute cinema color variables */
+  /* Absolute Cinema color variables */
   --ac-red: #873838;
   --ac-red-light: #9F5F5F;
   --ac-red-dark: #6C2C2C;
@@ -26,13 +26,13 @@ html, body {
 }
 
 .btn-ac-red {
-  /* Use alongside boostrap 'btn' class */
+  /* Use alongside bootstrap 'btn' class */
   --bs-btn-bg: var(--ac-red) !important;
   --bs-btn-hover-bg: var(--ac-red-light) !important;
 }
 
 .btn-ac-black {
-  /* Use alongside boostrap 'btn' class */
+  /* Use alongside bootstrap 'btn' class */
   --bs-btn-bg: var(--ac-black) !important;
   --bs-btn-hover-bg: var(--ac-black-light) !important;
 }

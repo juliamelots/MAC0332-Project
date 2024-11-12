@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function HomePage() {
 
-  let navigate = useNavigate(); 
-  const routeChange = () => { 
-    let path = "/movies"; 
-    navigate(path);
-  }
+  const navigateTo = useNavigate();
 
   return (
     <div className="d-flex flex-column vh-100 vw-100">
@@ -20,7 +16,7 @@ function HomePage() {
         <button 
           className="btn btn-ac-black text-white mt-3 mx-auto px-4 py-2" 
           style={{ maxWidth: '250px', width: '100%' }}
-          onClick={routeChange}
+          onClick={() => navigateTo("/movies")}
         >
           <i className="bi bi-film me-2"></i>
           Veja todos os filmes

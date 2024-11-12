@@ -11,9 +11,9 @@ function MoviesPage() {
     { title: 'Top Gun: Maverick', posterUrl: 'https://br.web.img3.acsta.net/c_310_420/pictures/19/12/16/15/00/5548914.jpg' },
   ];
 
-  const moviesGrid = movies.map((movie) =>
-    <div className="movie-poster-size position-relative d-flex justify-content-center">
-      <img src={movie.posterUrl} alt={'Cartaz de \"' + movie.title + '\"'} className="movie-poster-size movie-poster" />
+  const moviesGrid = movies.map((movie, idx) =>
+    <div key={idx} className="movie-poster-size position-relative d-flex justify-content-center">
+      <img src={movie.posterUrl} alt={'Cartaz de "' + movie.title + '"'} className="movie-poster-size movie-poster" />
       <p className="movie-title text-center">{movie.title}</p>
     </div>
   );
