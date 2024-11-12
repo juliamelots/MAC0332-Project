@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import MoviesFilterModal from '@/components/layout/modal/MoviesFilterModal';
 import Navbar from '@/components/layout/navbar/Navbar';
 import SearchBar from '@/components/layout/search-bar/SearchBar';
 
@@ -36,7 +37,7 @@ function MoviesPage() {
           <h1 className="text-center text-white mt-2 mb-5">Filmes</h1>
           <SearchBar
             placeholder="Procure filmes por título"
-            showFilter={true}
+            filterModal={<MoviesFilterModal />}
             searchInput={searchInput}
             setSearchInput={setSearchInput}
           />
