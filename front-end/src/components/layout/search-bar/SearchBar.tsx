@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-
 import './SearchBar.css';
 
 interface SearchBarProps {
@@ -10,7 +9,7 @@ interface SearchBarProps {
   setSearchInput: (newValue: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
+const SearchBar = (props: SearchBarProps)  => {
   const [tempSearchInput, setTempSearchInput] = useState(props.searchInput);
 
   const onSearchInputChanged = (event: React.ChangeEvent<HTMLInputElement>): void => {
