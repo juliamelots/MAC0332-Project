@@ -1,0 +1,9 @@
+{
+  "Divertida Mente 2": {
+    "availableCinemas": ["Cinemark"],
+    "genre": ["Ação"],
+    "rating": "L",
+    "duration": "1:30:00",
+    "url": "https://ingresso.com/divertida-mente-2"
+  }
+}
