@@ -11,9 +11,14 @@ html, body {
   /* Absolute Cinema color variables */
   --ac-red: #873838;
   --ac-red-light: #9F5F5F;
+  --ac-red-lighter: #FFF0F0;
   --ac-red-dark: #6C2C2C;
   --ac-black: #0F0F0F;
   --ac-black-light: #3F3F3F;
+  --ac-grey-light: #ECECEC;
+  --ac-purple-light: #F7F5FF;
+  --ac-mustard: #B6B10F;
+  --ac-mustard-light: #FFFCDE;
   --ac-white: #fff;
 }
 
@@ -23,6 +28,30 @@ html, body {
 
 .bg-ac-black {
   background-color: var(--ac-black);
+}
+
+.bg-ac-white {
+  background-color: var(--ac-white);
+}
+
+.icon-bg-grey {
+  background-color: var(--ac-grey-light);
+  color: var(--ac-black);
+}
+
+.icon-bg-yellow {
+  background-color: var(--ac-mustard-light);
+  color: var(--ac-mustard);
+}
+
+.icon-bg-purple {
+  background-color: var(--ac-purple-light);
+  color: var(--ac-red);
+}
+
+.icon-bg-red {
+  background-color: var(--ac-red-lighter);
+  color: var(--ac-red);
 }
 
 .btn-ac-red {
