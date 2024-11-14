@@ -1,28 +1,27 @@
 .card-container {
-  border-radius: 10px;
-  margin: 400px;
+  max-width: 500px; 
+  margin: 0 auto; 
+  width: 100%; 
 }
 
-.home-address-icon {
-  border-radius: 50%;
-  padding: 8px;
-  display: inline-flex;
-}
-
-.destination-address-icon {
-  border-radius: 50%;
-  padding: 8px;
-  display: inline-flex;
-}
-
-.generic-info-icon {
-  border-radius: 20%;
-  padding: 8px;
-  display: inline-flex;
-}
-
+.home-address-icon,
+.destination-address-icon,
+.generic-info-icon,
 .transportation-icon {
-  border-radius: 20%;
+  border-radius: 50%;
   padding: 8px;
   display: inline-flex;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    padding: 15px !important;
+    max-width: 100%; 
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-container {
+    max-width: 600px; 
+  }
 }
