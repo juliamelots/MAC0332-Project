@@ -1,0 +1,12 @@
+#checkbox-container {
+  display: flex;
+  justify-content: center;
+  border: 2px solid var(--ac-red);
+  padding: 0.20rem 0.60rem;
+  border-radius: 0.375rem;
+}
+
+#checkbox-text {
+  flex-grow: 1;
+  text-align: center;
+}
