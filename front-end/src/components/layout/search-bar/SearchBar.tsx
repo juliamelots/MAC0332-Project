@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { ChangeEvent, ReactElement, useState } from 'react';
 
 import './SearchBar.css';
 
 interface SearchBarProps {
   placeholder: string;
-  filterModal?: any;
+  filterModal?: ReactElement;
   searchInput: string;
   setSearchInput: (newValue: string) => void;
 }
@@ -12,7 +12,7 @@ interface SearchBarProps {
 const SearchBar = (props: SearchBarProps)  => {
   const [tempSearchInput, setTempSearchInput] = useState(props.searchInput);
 
-  const onSearchInputChanged = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const onSearchInputChanged = (event: ChangeEvent<HTMLInputElement>): void => {
     setTempSearchInput(event.target.value);
   };
 
@@ -38,7 +38,7 @@ const SearchBar = (props: SearchBarProps)  => {
                 </button>
                 {props.filterModal ? (
                   <>
-                    <button className="btn btn-ac-red text-white ms-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button className="btn btn-ac-red text-white ms-2" type="button" data-bs-toggle="modal" data-bs-target="#filterModal">
                       <i className="bi bi-funnel btn-icon"></i>
                     </button>
                     {props.filterModal}
