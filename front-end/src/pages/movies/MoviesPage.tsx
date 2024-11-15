@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import MoviesFilterModal from '@/components/layout/modal/MoviesFilterModal';
+import MoviesFilterModal from '@/components/ui/modal/MoviesFilterModal';
 import Navbar from '@/components/layout/navbar/Navbar';
 import SearchBar from '@/components/layout/search-bar/SearchBar';
 
@@ -51,4 +51,4 @@ function MoviesPage() {
   )
 }
 
-export default MoviesPage
+export default MoviesPage;
