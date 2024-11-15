@@ -70,8 +70,14 @@ function MoviesPage() {
           />
         </div>
 
-        <div id="movies-container" className="w-100 h-75 bg-ac-black">
-          {moviesGrid}
+        <div className="w-100 h-75 bg-ac-black">
+          {moviesGrid.length > 0 ? (
+            <div id="movies-container">
+              {moviesGrid}
+            </div>
+          ) : (
+            <p className="text-white text-center fs-5 mt-5">Não foi possível encontrar filmes que se encaixam em sua pesquisa.</p>
+          )}
         </div>
       </div>
     </>
