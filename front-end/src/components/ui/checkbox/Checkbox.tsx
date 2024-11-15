@@ -4,8 +4,8 @@ import './Checkbox.css';
 
 interface CheckboxProps {
   label: string;
-  value?: any;
-  onChange?: (isChecked: boolean, value: any, ...args: any[]) => void;
+  value?: unknown;
+  onChange?: (isChecked: boolean, value: unknown, ...args: unknown[]) => void;
 }
 
 const Checkbox = (props: CheckboxProps) => {

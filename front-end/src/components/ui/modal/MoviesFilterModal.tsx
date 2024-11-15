@@ -32,10 +32,10 @@ const MoviesFilterModal = (props: MovieFilterModalProps) => {
   }
 
   const movieGenresItems = movieGenres.map((genre, idx) =>
-    <Checkbox label={genre} onChange={onGenreChecked} />
+    <Checkbox key={idx} label={genre} onChange={onGenreChecked} />
   );
   const movieRatingsItems = movieRatings.map((rating, idx) =>
-    <Checkbox label={rating} onChange={onRatingChecked} />
+    <Checkbox key={idx} label={rating} onChange={onRatingChecked} />
   );
 
   return (

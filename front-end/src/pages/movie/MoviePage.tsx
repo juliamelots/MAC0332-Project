@@ -4,7 +4,7 @@ import './MoviePage.css';
 import MovieInfoHeader from "./MovieInfoHeader";
 import MovieInfoContent from "./MovieInfoContent";
 
-type MovieType = {
+interface MovieType {
   title: string,
   posterUrl: string,
   rating: string,
