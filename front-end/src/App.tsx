@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path = "/" element = {<Home />} />
           <Route path = "/movies" element = {<Movies />} />
-          <Route path = "/movie" element = {<Movie />} /> {/* TODO: Add movie ID parameter to path */}
+          <Route path = "/movie/:title" element = {<Movie />} />
         </Routes>
       </Router>
     </>
