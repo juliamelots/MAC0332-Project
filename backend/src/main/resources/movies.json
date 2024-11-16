@@ -1,9 +1,11 @@
-{
-  "Divertida Mente 2": {
-    "availableCinemas": ["Cinemark"],
-    "genre": ["Ação"],
+[
+  {
+    "name": "Divertida Mente 2",
+    "url": "https://ingresso.com/filme/divertida-mente-2",
+    "img_url": "https://ingresso.com/divertida-mente-2-poster",
     "rating": "L",
-    "duration": "1:30:00",
-    "url": "https://ingresso.com/divertida-mente-2"
+    "duration": "1h30",
+    "synopsis": "divertido",
+    "genres": ["divertida", "mente"]
   }
-}
+]

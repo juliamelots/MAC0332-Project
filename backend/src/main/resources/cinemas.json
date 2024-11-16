@@ -1,6 +1,11 @@
-{
-  "Cinemark": {
-    "latitude": 5.23587,
-    "longitude": 23.18275
+[
+  {
+    "name": "Cinemark",
+    "url": "blabluble.com",
+    "address": "rua sla o que",
+    "coordinates": {
+      "latitude": 4.50132,
+      "longitude": 9.09123
+    }
   }
-}
+]

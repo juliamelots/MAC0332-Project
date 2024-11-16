@@ -1,29 +1,32 @@
 package com.rotadacultura.model
 
 import kotlinx.serialization.Serializable
-import java.time.LocalTime
+import kotlinx.serialization.json.Json
+import java.io.File
 
 @Serializable
 data class Movie(
     val name: String,
-    val availableCinemas: List<Cinema>,
-    val genre: List<String>,
+    val url: String,
+    // uses snake case because of JSON formating
+    val img_url: String,
     val rating: String,
-    // TODO use duration as LocalTime or that sort of thing, because it is not
-    // TODO serializable
     val duration: String,
-    val url: String
+    val synopsis: String,
+    val genre: List<String>,
 ) {
     companion object {
-        fun new (
-            name: String,
-            availableCinemas: List<Cinema>,
-            genre: List<String>,
-            rating: String,
-            duration: String,
-            url: String
-        ): Movie {
-            return Movie(name, availableCinemas, genre, rating, duration, url)
+        // List to store all movies' data
+        private val moviesData: List<Movie> = Json.decodeFromString(
+            File(Cinema::class.java.classLoader.getResource("movies.json")!!.toURI()).readText()
+        )
+
+        fun new(name: String): Movie? {
+            return moviesData.find { it.name == name }
+        }
+
+        fun getMoviesData(): List<Movie> {
+            return moviesData
         }
     }
 }

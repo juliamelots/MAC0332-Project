@@ -1,41 +1,30 @@
 package com.rotadacultura.model
 
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.*
 import java.io.File
 
 @Serializable
-class Cinema(
+data class Cinema(
     val name: String,
-    val latitude: Double,
-    val longitude: Double,
+    val url: String,
+    val address: String,
+    val coordinates: Coordinates
 ) {
-    companion object {
-        // Variable to store data from all cinemas (prevents searching many times
-        // in the JSON file
-        private val cinemasData: JsonObject = Json.parseToJsonElement(
-            File(Cinema::class.java.classLoader.getResource("cinemas.json")!!.toURI()).readText()
-        ).jsonObject
+    @Serializable
+    data class Coordinates(
+        val latitude: Double,
+        val longitude: Double
+    )
 
-        fun new(
-            name: String,
-            latitude: Double,
-            longitude: Double,
-        ): Cinema {
-            return Cinema(name, latitude, longitude)
-        }
+    companion object {
+        // List to store all cinemas' data
+        private val cinemasData: List<Cinema> = Json.decodeFromString(
+            File(Cinema::class.java.classLoader.getResource("cinemas.json")!!.toURI()).readText()
+        )
 
         fun new(name: String): Cinema? {
-            val cinemaData = cinemasData[name]?.jsonObject
-            return cinemaData?.let {
-                Cinema(
-                    name = name,
-                    latitude = it["latitude"]?.toString()?.toDoubleOrNull() ?: error("Invalid latitude"),
-                    longitude = it["longitude"]?.toString()?.toDoubleOrNull() ?: error("Invalid longitude")
-                )
-            }
+            return cinemasData.find { it.name == name }
         }
     }
 }
