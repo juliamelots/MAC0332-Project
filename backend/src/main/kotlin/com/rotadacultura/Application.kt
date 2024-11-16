@@ -17,8 +17,10 @@ fun Application.configureCors() {
         allowHost("0.0.0.0:8080")
         allowHost("localhost:8080")
         allowHost("127.0.0.1:8079")
-        allowHost("0.0.0.0:3000")
+        allowHost("0.0.0.0:3000") // front-end development server
         allowHost("localhost:3000")
+        allowHost("0.0.0.0:80") // front-end production server
+        allowHost("localhost:80")
         // uncomment below for production (only hosts above for testing)
         //anyHost()
         allowCredentials = true

@@ -28,6 +28,7 @@ local.properties
 .attach_pid*
 apidoc
 
+src/main/resources/scraping/__pycache__/*
 
 bin/
 .settings

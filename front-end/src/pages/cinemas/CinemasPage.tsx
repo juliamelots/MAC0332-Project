@@ -1,8 +1,10 @@
 import { useParams, useLocation } from "react-router-dom";
+
+import { CinemaType, CinemasType } from "@/types/cinema";
+
 import CinemaCard from "@/pages/cinemas/CinemaCard";
 import FilterSelector from "@/components/layout/filter-selector/FilterSelector";
 import Navbar from "@/components/layout/navbar/Navbar";
-import { CinemaType } from "@/types/types";
 import { useState } from "react";
 import "./CinemasPage.css"
 
