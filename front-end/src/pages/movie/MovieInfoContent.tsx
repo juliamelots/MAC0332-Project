@@ -2,13 +2,13 @@ import { useState } from 'react';
 
 interface props {
     plot: string,
-    cast: string,
+    directors: string,
     genre: string
 };
 
-const MovieInfoContent = ({ plot, cast, genre }: props) => {
+const MovieInfoContent = ({ plot, directors, genre }: props) => {
     const [activeTab, setActiveTab] = useState('tabPlot');
-    const actors = cast.split(",");
+    const director = directors.split(",");
     return (
         <div>
             <ul className="nav nav-tabs">
@@ -24,10 +24,10 @@ const MovieInfoContent = ({ plot, cast, genre }: props) => {
                 <li className="nav-item" key={2}>
                     <span 
                       role="button"
-                      className={`nav-link ${activeTab === 'tabCast' ? 'active' : ''}`}
-                      onClick={() => setActiveTab('tabCast')}
+                      className={`nav-link ${activeTab === 'tabDirector' ? 'active' : ''}`}
+                      onClick={() => setActiveTab('tabDirector')}
                     >
-                      Elenco
+                      Direção
                     </span>
                 </li>
                 <li className="nav-item" key={3}>
@@ -39,21 +39,21 @@ const MovieInfoContent = ({ plot, cast, genre }: props) => {
                       Gênero
                     </span>
                 </li>
-          </ul>
+            </ul>
 
-          <div className="tab-content mt-3">
-              {activeTab === 'tabPlot' && <div className="text-ac-white">{plot}</div>}
-              {activeTab === 'tabCast' && 
-                  <div className="text-ac-white d-flex flex-wrap">
-                      { actors.map((actor, index) => (
-                          <p key={index} className="movie-card-cast">{actor}</p>
-                      )) }
-                  </div>
-              }
-              {activeTab === 'tabGenre' && <div className="text-ac-white">{genre}</div>}
-          </div>
-    </div>
-  )
-}
+            <div className="tab-content mt-3">
+                {activeTab === 'tabPlot' && <div className="text-ac-white">{plot}</div>}
+                {activeTab === 'tabDirector' && 
+                    <div className="text-ac-white d-flex flex-wrap">
+                        { director.map((dir, index) => (
+                            <p key={index} className="movie-card-director">{dir}</p>
+                        )) }
+                    </div>
+                }
+                {activeTab === 'tabGenre' && <div className="text-ac-white">{genre}</div>}
+            </div>
+        </div>
+    )
+};
 
-export default MovieInfoContent
+export default MovieInfoContent;
