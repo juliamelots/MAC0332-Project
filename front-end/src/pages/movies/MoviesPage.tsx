@@ -12,24 +12,26 @@ import './MoviesPage.css';
 
 function MoviesPage() {
   const [movies, setMovies] = useState<BackMovieType[]>([]);
-  const [error, setError] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
   const [searchInput, setSearchInput] = useState<string>('');
   const [ratingFilters, setRatingFilters] = useState<string[]>([]);
   const [genreFilters, setGenreFilters] = useState<string[]>([]);
 
     useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get(`/movie`);
-        setMovies(response.data.movies as BackMovieType[]);
-      } catch (err) {
-        setError('Não foi possível carregar filmes.');
-        console.error(err);
-      }
-    };
-    fetchMovies();
-  }, []);
+      const fetchMovies = async () => {
+        try {
+          setMessage('Carregando filmes...');
+          const response = await axios.get(`/movie`);
+          setMovies(response.data.movies as BackMovieType[]);
+          setMessage('');
+        } catch (err) {
+          setMessage('Não foi possível carregar filmes.');
+          console.error(err);
+        }
+      };
+      fetchMovies();
+    }, []);
 
   const onFiltersSaved = (genres: Set<string>, ratings: Set<string>) => {
     setGenreFilters(Array.from(genres));
@@ -47,7 +49,7 @@ function MoviesPage() {
 
       const result = searchResult && genreFiltersResult && ratingFiltersResult;
       if (!result) {
-        setError('Não foi possível encontrar filmes que se encaixam em sua pesquisa.');
+        setMessage('Não foi possível encontrar filmes que se encaixam em sua pesquisa.');
       }
       return result;
     })
@@ -91,7 +93,7 @@ function MoviesPage() {
               {moviesGrid}
             </div>
           ) : (
-            <p className="text-white text-center fs-5 mt-5">{error}</p>
+            <p className="text-white text-center fs-5 mt-5">{message}</p>
           )}
         </div>
       </div>
