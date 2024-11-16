@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import CinemaCard from "@/pages/cinemas/CinemaCard";
 import FilterSelector from "@/components/layout/filter-selector/FilterSelector";
 import Navbar from "@/components/layout/navbar/Navbar";
+import { CinemaType } from "@/types/types";
 
 type CinemaData = {
   movie: string,
@@ -22,6 +23,8 @@ type CinemaData = {
 }
 
 function CinemasPage() {
+  const location = useLocation();
+  const cinemas = location.state?.cinemas || [];
   const { movie } = useParams<{ movie: string }>();
 
   const distanceOptions = [

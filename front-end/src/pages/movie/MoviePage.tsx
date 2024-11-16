@@ -4,17 +4,8 @@ import axios from "@/services/axiosInstance";
 import Navbar from "@/components/layout/navbar/Navbar";
 import MovieInfoHeader from "./MovieInfoHeader";
 import MovieInfoContent from "./MovieInfoContent";
+import { MovieType } from "@/types/types";
 import './MoviePage.css';
-
-type MovieType = {
-  title: string,
-  posterUrl: string,
-  runtime: string,
-  genre: string,
-  plot: string,
-  rated: string,
-  directors: string
-};
 
 function MoviePage() {
   const { title } = useParams<{ title: string }>();
@@ -38,7 +29,8 @@ function MoviePage() {
             genre: movieData.genre.join(", "),
             plot: "Descrição não disponível",
             rated: movieData.rating,
-            directors: "Não disponível"
+            directors: "Não disponível",
+            availableCinemas: movieData.availableCinemas
           };
           setMovie(mappedMovie);
           setError(null);
@@ -88,7 +80,11 @@ function MoviePage() {
               />
               <div className="d-flex align-items-center">
                 <i className="bi bi-geo-alt-fill icon-geo"></i>
-                <Link to={`/cinemas/${title}`} className="p-3 rounded-3 btn-movie-theater">
+                <Link 
+                  to = {`/cinemas/${movie.title}`}
+                  state = {{ cinemas: movie.availableCinemas }}
+                  className = "p-3 rounded-3 btn-movie-theater"
+                >
                   Encontre cinemas por perto
                 </Link>
               </div>
