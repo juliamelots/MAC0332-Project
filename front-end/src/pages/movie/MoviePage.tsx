@@ -1,6 +1,6 @@
 import { useLocation, useParams, Link } from "react-router-dom";
 
-import { BackMovieType } from "@/types/types";
+import { MovieType } from "@/types/movie";
 
 import MovieInfoHeader from "./MovieInfoHeader";
 import MovieInfoContent from "./MovieInfoContent";
@@ -9,7 +9,7 @@ import Navbar from "@/components/layout/navbar/Navbar";
 import './MoviePage.css';
 
 function MoviePage() {
-  const movie = useLocation().state?.movie as BackMovieType ?? null;
+  const movie = useLocation().state?.movie as MovieType ?? null;
   const { title } = useParams<{ title: string }>();
 
   return (

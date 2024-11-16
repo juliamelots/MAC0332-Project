@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
 import axios from "@/services/axiosInstance";
-import { BackMovieType } from '@/types/types';
+import { MovieType } from '@/types/movie';
 
 import MoviesFilterModal from '@/components/ui/modal/MoviesFilterModal';
 import Navbar from '@/components/layout/navbar/Navbar';
@@ -11,7 +11,7 @@ import SearchBar from '@/components/layout/search-bar/SearchBar';
 import './MoviesPage.css';
 
 function MoviesPage() {
-  const [movies, setMovies] = useState<BackMovieType[]>([]);
+  const [movies, setMovies] = useState<MovieType[]>([]);
   const [message, setMessage] = useState<string>('');
 
   const [searchInput, setSearchInput] = useState<string>('');
@@ -23,7 +23,7 @@ function MoviesPage() {
         try {
           setMessage('Carregando filmes...');
           const response = await axios.get(`/movie`);
-          setMovies(response.data.movies as BackMovieType[]);
+          setMovies(response.data.movies as MovieType[]);
           setMessage('');
         } catch (err) {
           setMessage('Não foi possível carregar filmes.');

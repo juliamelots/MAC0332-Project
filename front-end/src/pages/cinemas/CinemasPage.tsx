@@ -1,26 +1,10 @@
 import { useParams, useLocation } from "react-router-dom";
+
+import { CinemaType, CinemasType } from "@/types/cinema";
+
 import CinemaCard from "@/pages/cinemas/CinemaCard";
 import FilterSelector from "@/components/layout/filter-selector/FilterSelector";
 import Navbar from "@/components/layout/navbar/Navbar";
-import { CinemaType } from "@/types/types";
-
-type CinemaData = {
-  movie: string,
-  cinemas: {
-    name: string;
-    location: string;
-    price: string;
-    address: {
-      home: { street: string; city: string };
-      destination: { street: string; city: string };
-    };
-    schedule: { time: string; subs: string }[];
-    commuteInfo: {
-      bestRoute: { time: string; transportation: string };
-      shortestDistance: string;
-    };
-  }[];
-}
 
 function CinemasPage() {
   const location = useLocation();
@@ -38,7 +22,7 @@ function CinemasPage() {
     { label: "Mais curta", value: "shortest" },
   ];
 
-  const cinemaMockData: CinemaData = {
+  const cinemaMockData: CinemasType = {
     movie: movie || "",
     cinemas: [
       {
