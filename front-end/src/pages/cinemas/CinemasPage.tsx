@@ -3,22 +3,17 @@ import CinemaCard from "@/pages/cinemas/CinemaCard";
 import FilterSelector from "@/components/layout/filter-selector/FilterSelector";
 import Navbar from "@/components/layout/navbar/Navbar";
 import { CinemaType } from "@/types/types";
+import { useState } from "react";
+import "./CinemasPage.css"
 
 function CinemasPage() {
   const location = useLocation();
   const { movie } = useParams<{ movie: string }>();
-  const cinemas: CinemaType[] = location.state?.cinemas || []; 
+  const cinemas: CinemaType[] = location.state?.cinemas || [];
 
-  const distanceOptions = [
-    { label: "5 km", value: "5" },
-    { label: "10 km", value: "10" },
-    { label: "20 km", value: "20" },
-  ];
+  const distanceOptions = ["5 km", "10 km", "15 km", "20 km"];
 
-  const routeOptions = [
-    { label: "Mais rápida", value: "fastest" },
-    { label: "Mais curta", value: "shortest" },
-  ];
+  const [selectedDistance, setSelectedDistance] = useState(distanceOptions[3]);
 
   const enhancedCinemas = cinemas.map((cinema) => ({
     ...cinema,
@@ -37,7 +32,11 @@ function CinemasPage() {
       bestRoute: { time: "40 minutos", transportation: "bi-bus-front" },
       shortestDistance: "12 km",
     },
-  }));
+  })).filter((cinema) => {
+    const selectedDistanceInKm = parseFloat(selectedDistance);
+    const cinemaDistanceInKm = parseFloat(cinema.commuteInfo?.shortestDistance?.replace(' km', ''));
+    return cinemaDistanceInKm <= selectedDistanceInKm;
+  });;
 
   return (
     <div className="d-flex flex-column h-100 w-100">
@@ -47,22 +46,31 @@ function CinemasPage() {
           <h1 className="text-white">Cinemas exibindo <em>{movie}</em></h1>
         </div>
         <div className="d-flex flex-row justify-content-center my-3" style={{ gap: '100px' }}>
-          <FilterSelector placeholder="Distância máxima" options={distanceOptions} />
-          <FilterSelector placeholder="Melhor rota" options={routeOptions} />
+          <FilterSelector
+            placeholder="Distância máxima"
+            options={distanceOptions}
+            onOptionSelect={setSelectedDistance} />
         </div>
       </div>
       <div className="bg-ac-black text center d-flex flex-column h-100">
-        {enhancedCinemas.map((cinema, index) => (
-          <CinemaCard
-            key={index}
-            name={cinema.name}
-            location={cinema.location!}
-            price={cinema.price!}
-            address={cinema.address!}
-            schedule={cinema.schedule!}
-            commuteInfo={cinema.commuteInfo!}
-          />
-        ))}
+        {enhancedCinemas.length > 0 ? (
+          enhancedCinemas.map((cinema, index) => (
+            <CinemaCard className="cinema-card"
+              key={index}
+              name={cinema.name}
+              location={cinema.location!}
+              price={cinema.price!}
+              address={cinema.address!}
+              schedule={cinema.schedule!}
+              commuteInfo={cinema.commuteInfo!}
+            />
+          ))
+        ) : (
+          <div className="d-flex align-items-center justify-content-center h-100">
+            <h3 className="text-white">Nenhum cinema encontrado para a distância selecionada.</h3>
+          </div>
+        )}
+        <div className="space"></div>
       </div>
     </div>
   )

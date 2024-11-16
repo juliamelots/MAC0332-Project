@@ -41,7 +41,7 @@ const CinemaCard = ({
   commuteInfo,
 }: CinemaCardProps) => {
   return (
-    <div className="card my-4 p-4 card-container bg-ac-white">
+    <div className="card p-4 card-container bg-ac-white">
       <div className="d-flex justify-content-between mb-3">
         <div>
           <h5 className="text-dark">{name}</h5>

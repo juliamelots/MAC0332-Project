@@ -3,18 +3,20 @@ import "./FilterSelector.css";
 
 interface FilterSelectorProps {
   placeholder: string;
-  options: { label: string; value: string }[];
+  options: string[];
+  onOptionSelect: (option: string) => void;
 }
 
-const FilterSelector = ({ placeholder, options }: FilterSelectorProps) => {
+const FilterSelector = ({ placeholder, options, onOptionSelect }: FilterSelectorProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(placeholder);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleOptionClick = (option: { label: string; value: string }) => {
-    setSelectedOption(option.label);
+  const handleOptionClick = (option: string) => {
+    setSelectedOption(option);
     setIsOpen(false); 
+    onOptionSelect(option);
   };
 
   return (
@@ -36,7 +38,7 @@ const FilterSelector = ({ placeholder, options }: FilterSelectorProps) => {
               className="dropdown-item"
               onClick={() => handleOptionClick(option)}
             >
-              {option.label}
+              {option}
             </button>
           ))}
         </div>

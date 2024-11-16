@@ -1,6 +1,7 @@
 .card-container {
   max-width: 500px; 
-  margin: 0 auto; 
+  margin: 0 auto;
+  margin-top: 3rem;
   width: 100%; 
 }
 
