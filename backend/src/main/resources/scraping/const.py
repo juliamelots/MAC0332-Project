@@ -13,4 +13,4 @@ options.profile = ffprofile
 OPTIONS = options
 TIMEOUT = 30
 TIME_BETWEEN_REQUESTS = 0.2
-OUTPUT_PATH = '.'
+OUTPUT_PATH = './src/main/resources'
