@@ -1,33 +1,58 @@
-import { React } from 'react';
+import { ChangeEvent, ReactElement, useState } from 'react';
 
 import './SearchBar.css';
 
 interface SearchBarProps {
   placeholder: string;
-  showFilter: boolean;
+  filterModal?: ReactElement;
+  searchInput: string;
+  setSearchInput: (newValue: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
+const SearchBar = (props: SearchBarProps)  => {
+  const [tempSearchInput, setTempSearchInput] = useState(props.searchInput);
+
+  const onSearchInputChanged = (event: ChangeEvent<HTMLInputElement>): void => {
+    setTempSearchInput(event.target.value);
+  };
+
+  const onSearchButtonClicked = (): void => {
+    props.setSearchInput(tempSearchInput);
+  };
+
   return (
-    <div className="input-group my-1 py-1 d-flex justify-content-center align-center w-100">
-      <div id="search-input" className="w-75 bg-ac-red">
-        <div className="input-group col-md-12">
-          <input type="text" className="form-control input-lg" placeholder={props.placeholder} />
-          <span className="input-group-btn">
-              <button className="btn btn-ac-red text-white" type="button">
-                <i className="bi bi-search btn-icon"></i>
-              </button>
-              {props.showFilter ? (
-                <button className="btn btn-ac-red text-white ms-2" type="button">
-                  <i className="bi bi-funnel btn-icon"></i>
+    <>
+      <div className="input-group my-1 py-1 d-flex justify-content-center align-center w-100">
+        <div id="search-input" className="w-75 bg-ac-red">
+          <div className="input-group col-md-12">
+            <input className="form-control input-lg"
+              type="text"
+              placeholder={props.placeholder}
+              value={tempSearchInput}
+              onChange={onSearchInputChanged}
+            />
+            <span className="input-group-btn">
+                <button className="btn btn-ac-red text-white" type="button"
+                  onClick={onSearchButtonClicked}>
+                  <i className="bi bi-search btn-icon"></i>
                 </button>
-              ) : (
-                <></>
-              )}
-          </span>
+                {props.filterModal ? (
+                  <>
+                    <button className="btn btn-ac-red text-white ms-2" type="button" data-bs-toggle="modal" data-bs-target="#filterModal">
+                      <i className="bi bi-funnel btn-icon"></i>
+                    </button>
+                    {props.filterModal}
+                  </>
+                ) : (
+                  <></>
+                )}
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+
+
+    </>
   )
 }
 

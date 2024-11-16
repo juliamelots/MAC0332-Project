@@ -15,11 +15,13 @@ html, body {
   --ac-red-dark: #6C2C2C;
   --ac-black: #0F0F0F;
   --ac-black-light: #3F3F3F;
-  --ac-grey-light: #ECECEC;
+  --ac-white: #fff;
+  --ac-gray: #C8C2C2;
+  --ac-gray-light: #ECECEC;
+  --ac-gray-dark: #b5aeae;
   --ac-purple-light: #F7F5FF;
   --ac-mustard: #B6B10F;
   --ac-mustard-light: #FFFCDE;
-  --ac-white: #fff;
 }
 
 .bg-ac-red {
@@ -30,12 +32,16 @@ html, body {
   background-color: var(--ac-black);
 }
 
+.bg-ac-gray {
+  background-color: var(--ac-gray);
+}
+
 .bg-ac-white {
   background-color: var(--ac-white);
 }
 
 .icon-bg-grey {
-  background-color: var(--ac-grey-light);
+  background-color: var(--ac-gray-light);
   color: var(--ac-black);
 }
 
@@ -69,4 +75,8 @@ html, body {
 .btn-icon {
   font-size: 1rem;
   background-color: none;
+}
+
+.text-ac-white {
+  color: var(--ac-white);
 }
