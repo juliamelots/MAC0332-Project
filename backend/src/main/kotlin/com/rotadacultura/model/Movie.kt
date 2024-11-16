@@ -7,6 +7,7 @@ import java.io.File
 @Serializable
 data class Movie(
     val name: String,
+    val id: String,
     val url: String,
     // uses snake case because of JSON formating
     val img_url: String,
