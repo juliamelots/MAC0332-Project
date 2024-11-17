@@ -11,5 +11,5 @@ h3.text-white.text-center {
 }
 
 .space {
-  height: 3rem;
+  min-height: 3rem;
 }

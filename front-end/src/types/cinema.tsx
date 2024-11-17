@@ -3,7 +3,7 @@ export interface CinemasType {
   cinemas: CinemaType[];
 };
 
-export type CinemaType = {
+export interface CinemaType {
   name: string;
   latitude: string;
   longitude: string;

@@ -39,7 +39,7 @@ function MoviePage() {
                 <Link 
                   className="p-3 rounded-3 btn-movie-theater"
                   to={`/cinemas/${movie.name}`}
-                  state={{ cinemas: movie.availableCinemas }}
+                  state={{ movieName: movie.name, movieId: movie.id }}
                 >
                   Encontre cinemas por perto
                 </Link>
