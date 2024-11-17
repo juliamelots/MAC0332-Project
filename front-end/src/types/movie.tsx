@@ -1,7 +1,7 @@
 export interface MovieType {
     name: string;
     id: string;
-    genre: string[];
+    categories: string[];
     rating: MovieRating;
     duration: string;
     synopsis: string;
