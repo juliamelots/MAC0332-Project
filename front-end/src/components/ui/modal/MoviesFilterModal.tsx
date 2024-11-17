@@ -1,30 +1,34 @@
 import { useEffect, useState } from 'react';
-import { MovieType } from '@/types/movie';
+import axios from "@/services/axiosInstance";
 
 import Checkbox from '@/components/ui/checkbox/Checkbox';
 
 import './MoviesFilterModal.css';
 
 interface MovieFilterModalProps {
-  movies: MovieType[]; // TODO: Remove when genres route is available.
   initialCheckedGenres?: string[];
   initialCheckedRatings?: string[];
   onSave: (genres: Set<string>, ratings: Set<string>) => void;
 }
 
 const MoviesFilterModal = (props: MovieFilterModalProps) => {
+  const [movieGenres, setMovieGenres] = useState<string[]>([]);
   const movieRatings = ['L', '10', '12', '14', '16', '18'];
   
   const checkedGenres = new Set<string>(props.initialCheckedGenres ?? []);
   const checkedRatings = new Set<string>(props.initialCheckedRatings ?? []);
   
-  // TODO: Remove when genres route is available.
-  const [movieGenres, setMovieGenres] = useState<string[]>([]);
   useEffect(() => {
-    const movieGenresSet = new Set<string>();
-    props.movies.forEach((movie: MovieType) => movie.categories.forEach((genre: string) => movieGenresSet.add(genre)));
-    setMovieGenres(Array.from(movieGenresSet));
-  }, [props.movies]);
+    const fetchMovieGenres = async () => {
+      try {
+        const response = await axios.get(`/movie/genres`);
+        setMovieGenres(response.data.genres);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchMovieGenres();
+  }, []);
 
   const onCheckChanged = (isChecked: boolean, value: string, checkedSet: Set<string>): void => {
     if (isChecked) {

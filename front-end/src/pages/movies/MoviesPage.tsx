@@ -82,7 +82,6 @@ function MoviesPage() {
           <SearchBar
             placeholder="Procure filmes por título"
             filterModal={<MoviesFilterModal
-              movies={movies}
               initialCheckedGenres={genreFilters}
               initialCheckedRatings={ratingFilters}
               onSave={onFiltersSaved}
