@@ -6,15 +6,15 @@ import java.io.File
 
 @Serializable
 data class Movie(
-    val name: String,
     val id: String,
+    val name: String,
     val url: String,
     // uses snake case because of JSON formating
     val img_url: String,
     val rating: String,
     val duration: String,
     val synopsis: String,
-    val genre: List<String>,
+    val categories: List<String>,
 ) {
     companion object {
         // List to store all movies' data
