@@ -25,7 +25,7 @@ fun Route.movieRouting() {
                     .filter {it.movie == movieId}
                     .map {it.cinema}
                     .distinct()
-                call.respond(mapOf("available_cinemas" to cinemas))
+                call.respond(mapOf("available-cinemas" to cinemas))
             } catch (ex: Exception) {
                 call.respond(HttpStatusCode.InternalServerError, "Error gathering available cinemas: ${ex.message}")
             }
