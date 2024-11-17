@@ -32,7 +32,7 @@ function MoviePage() {
               <MovieInfoContent
                 plot={movie.synopsis}
                 directors='Não disponível.'
-                genre={movie.genre.join(', ')}
+                genre={movie.categories.join(', ')}
               />
               <div className="d-flex align-items-center">
                 <i className="bi bi-geo-alt-fill icon-geo"></i>
