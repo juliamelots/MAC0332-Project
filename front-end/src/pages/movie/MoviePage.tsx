@@ -10,7 +10,7 @@ import './MoviePage.css';
 
 function MoviePage() {
   const movie = useLocation().state?.movie as MovieType ?? null;
-  const { title } = useParams<{ title: string }>();
+  const { movieId } = useParams<{ id: string }>();
 
   return (
     <div>

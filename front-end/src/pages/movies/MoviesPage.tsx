@@ -54,7 +54,7 @@ function MoviesPage() {
         <Link
           key={idx}
           className="movie-poster-size position-relative d-flex justify-content-center"
-          to={`/movie/${movie.name}`}
+          to={`/movie/${movie.id}`}
           state={{ movie: movie }}
         >
           <img
