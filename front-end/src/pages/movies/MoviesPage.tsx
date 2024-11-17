@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import axios from "@/services/axiosInstance";
 import { MovieType } from '@/types/movie';
@@ -11,11 +11,13 @@ import SearchBar from '@/components/layout/search-bar/SearchBar';
 import './MoviesPage.css';
 
 function MoviesPage() {
+  const initialSearchInput = useLocation().state?.searchInput as string ?? '';
+
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [moviesGrid, setMoviesGrid] = useState<ReactElement[]>([]);
   const [message, setMessage] = useState<string>('');
 
-  const [searchInput, setSearchInput] = useState<string>('');
+  const [searchInput, setSearchInput] = useState<string>(initialSearchInput);
   const [genreFilters, setGenreFilters] = useState<string[]>([]);
   const [ratingFilters, setRatingFilters] = useState<string[]>([]);
 
