@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import axios from "@/services/axiosInstance";
 
+import axios from "@/services/axiosInstance";
 import Checkbox from '@/components/ui/checkbox/Checkbox';
 
 import './MoviesFilterModal.css';
