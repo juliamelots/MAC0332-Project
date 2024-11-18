@@ -10,13 +10,15 @@
 - Leonardo Bozzetto
 - Natalya Silva Aragão
 
-## Roadmap
+## Dependencies
 
-## Installation
+- [Docker](https://docs.docker.com/)
 
-### Backend
+## Usage
 
-To build and run the backend of this project, run the following commands in the project's root directory:
+### Back-end
+
+To build and run the back-end of this project, run the following commands in the project's `./backend` directory:
 
 - for *development* build:
 ``` sh
@@ -28,6 +30,18 @@ docker-compose up backend-dev
 docker-compose up backend-prod
 ```
 
-## Usage
+### Front-end
+
+To build and run the front-end of this project, run the following commands in the project's `./front-end` directory:
+
+- for *development*, navigate to `http://localhost:3000/` after building:
+``` sh
+docker-compose up frontend-dev
+```
+
+- for *production*, navigate to `http://localhost:80/` after building:
+``` sh
+docker-compose up frontend-prod
+```
 
 ## License
