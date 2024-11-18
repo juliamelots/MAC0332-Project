@@ -6,17 +6,12 @@ import java.io.File
 
 @Serializable
 data class Cinema(
+    val id: String,
     val name: String,
     val url: String,
     val address: String,
-    val coordinates: Coordinates
+    val coordinates: List<Double>
 ) {
-    @Serializable
-    data class Coordinates(
-        val latitude: Double,
-        val longitude: Double
-    )
-
     companion object {
         // List to store all cinemas' data
         private val cinemasData: List<Cinema> = Json.decodeFromString(
@@ -25,6 +20,10 @@ data class Cinema(
 
         fun new(name: String): Cinema? {
             return cinemasData.find { it.name == name }
+        }
+
+        fun getCinemasData(): List<Cinema> {
+            return cinemasData
         }
     }
 }
