@@ -1,9 +1,9 @@
 import "./CinemaCard.css";
+import { useState } from "react";
 
 interface CinemaCardProps {
   name: string;
   location: string;
-  price: string;
   address: {
     home: { street: string; city: string };
     destination: { street: string; city: string };
@@ -40,6 +40,12 @@ const CinemaCard = ({
   schedule,
   commuteInfo,
 }: CinemaCardProps) => {
+  const [expandedDate, setExpandedDate] = useState<string | null>(null);
+
+  const toggleDateExpansion = (date: string) => {
+    setExpandedDate((prev) => (prev === date ? null : date));
+  };
+
   return (
     <div className="card p-4 card-container bg-ac-white">
       <div className="d-flex justify-content-between mb-3">
@@ -69,9 +75,25 @@ const CinemaCard = ({
             city={address.destination.city}
           />
         </div>
-        <div className="flex-grow-1">
-          <ScheduleInfo schedule={schedule} />
-        </div>
+      </div>
+
+      <div className="dates-container">
+        <h5 className="mb-3 fs-6">Datas das sessões</h5>
+        {schedule.map((scheduleItem) => (
+          <div key={scheduleItem.date} className="mb-3">
+            <button
+              className="btn btn-ac-red-light"
+              onClick={() => toggleDateExpansion(scheduleItem.date)}
+            >
+              {scheduleItem.date}
+            </button>
+            {expandedDate === scheduleItem.date && (
+              <div className="schedule-info mt-3">
+                <ScheduleInfo schedule={scheduleItem.sessions} />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
       <div className="d-flex flex-wrap">
@@ -105,24 +127,31 @@ const AddressInfo = ({ icon, iconClass, street, city }: AddressInfoProps) => (
   </div>
 );
 
-const ScheduleInfo = ({ schedule }: ScheduleInfoProps) => (
-  <>
-    {['Legendado', 'Dublado'].map((type) => (
-      <div key={type} className="text-end mb-2">
-        <p className="text-muted mb-1">{type}</p>
-        <div className="d-flex justify-content-end gap-2">
-          {schedule
-            .filter((item) => item.subs === type)
-            .map((item, index) => (
-              <span key={index} className="badge bg-light text-dark">
-                {item.time}
-              </span>
-            ))}
-        </div>
-      </div>
-    ))}
-  </>
-);
+const ScheduleInfo = ({ schedule }: ScheduleInfoProps) => {
+  return (
+    <div>
+      {['Legendado', 'Dublado'].map((type) => {
+        const typeSchedule = schedule.filter(item => item.subs === type);
+        return (
+          <div key={type} className="schedule-type mb-3">
+            <h6 className="text-dark fs-6">{type}</h6>
+            <div className="schedule-scroll">
+              {typeSchedule.length > 0 ? (
+                typeSchedule.map((item, index) => (
+                  <span key={index} className="badge bg-light text-dark me-2">
+                    {item.time}
+                  </span>
+                ))
+              ) : (
+                <span className="text-muted">Nenhum horário disponível</span>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 const CommuteInfo = ({ icon, label, value, transportIcon }: CommuteInfoProps) => (
   <div className="mb-2">

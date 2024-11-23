@@ -32,6 +32,20 @@ fun Route.cinemaRouting() {
                 call.respond(HttpStatusCode.InternalServerError, "Error gathering cinema sessions: ${ex.message}")
             }
         }
+        get("{cinema_id}/{movieId}/sessions") {
+            try {
+                val cinemaId = call.parameters["cinema_id"]!!.toString()
+                val movieId = call.parameters["movieId"]!!.toString()
+                val sessions = Session.getSessionsData()
+                
+                val movieSessions = sessions
+                    .filter {it.cinema == cinemaId && it.movie == movieId}
+
+                call.respond(mapOf("movie sessions" to movieSessions))
+            } catch (ex: Exception) {
+                call.respond(HttpStatusCode.InternalServerError, "Error gathering cinema sessions: ${ex.message}")
+            }
+        }
     }
 }
 

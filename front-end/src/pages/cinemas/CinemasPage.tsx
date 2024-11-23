@@ -9,6 +9,53 @@ import Navbar from "@/components/layout/navbar/Navbar";
 import { useState, useEffect } from "react";
 import "./CinemasPage.css"
 
+function convertToCinemaType(cinemaName: string, address: string, sessions: any[]): CinemaType {
+  const mockLocation = "Shopping Iguatemi"; 
+  const mockLatitude = "0.0000"; 
+  const mockLongitude = "0.0000"; 
+  cinemaName = cinemaName
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+  const [street, city] = address.split('-').map((part) => part.trim());
+  const addressObject = {
+    home: { street: "Av. Minha Rua, 1234", city: "São Paulo, São Paulo" }, 
+    destination: { street, city },
+  };
+
+  const groupedSessions = sessions.reduce((acc, session) => {
+    const sessionDate = session.date;
+    if (!acc[sessionDate]) {
+      acc[sessionDate] = [];
+    }
+    acc[sessionDate].push({
+      time: session.time,
+      subs: session.categories.includes("LEGENDADO") ? "Legendado" : "Dublado",
+    });
+    return acc;
+  }, {} as Record<string, { time: string; subs: string }[]>);
+
+  const schedule = Object.keys(groupedSessions).map((date) => ({
+    date,
+    sessions: groupedSessions[date],
+  }));
+
+  return {
+    name: cinemaName, 
+    latitude: mockLatitude,
+    longitude: mockLongitude,
+    location: mockLocation,
+    address: addressObject,
+    schedule: schedule,
+    commuteInfo: {
+      bestRoute: { time: "40 minutos", transportation: "Ônibus" },
+      shortestDistance: "12 km", 
+    },
+  };
+}
+
+
 function CinemasPage() {
   const location = useLocation();
   const movieName = location.state?.movieName || '';
@@ -16,40 +63,31 @@ function CinemasPage() {
 
   const [cinemas, setCinemas] = useState<CinemaType[]>([]);
   const [message, setMessage] = useState<string>('');
-  let responseData: string[] = [];
+  let cinemaIdsData: string[] = [];
 
   useEffect(() => {
     const fetchCinemas = async () => {
       try {
-        setMessage('Carregando filmes...');
-        const response = await axios.get(`/movie/${movieId}/available-cinemas`);
-        responseData = response.data["available-cinemas"];
+        setMessage('Carregando cinemas...');
+        const cinemaIds = await axios.get(`/movie/${movieId}/available-cinemas`);
+        cinemaIdsData = cinemaIds.data["available-cinemas"];
 
-        // Convert the string cinemas array to a mocked array of CinemaType 
-        const enhancedCinemasMocked: CinemaType[] = responseData.map((cinema) => ({
-          name: cinema
-            .split('-')
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' '),
-          latitude: "0.0000", 
-          longitude: "0.0000", 
-          location: "Shopping Iguatemi", 
-          price: "R$29,99", 
-          address: {
-            home: { street: "Av. minha rua, 123", city: "Osasco, São Paulo" },
-            destination: { street: "Av. Paulista, 1234", city: "São Paulo, São Paulo" },
-          },
-          schedule: [
-            { time: "12:30", subs: "Dublado" },
-            { time: "21:30", subs: "Legendado" },
-            { time: "24:00", subs: "Legendado" },
-          ],
-          commuteInfo: {
-            bestRoute: { time: "40 minutos", transportation: "Ônibus" },
-            shortestDistance: "12 km",
-          },
-        }));
-        setCinemas(enhancedCinemasMocked as CinemaType[]);
+        const cinemaPromises = cinemaIdsData.map(async (cinema) => {
+          const cinemaAddressResponse = await axios.get(`/cinema/${cinema}/address`);
+          const cinemaSessionsResponse = await axios.get(`/cinema/${cinema}/${movieId}/sessions`);
+
+          const cinemaType = convertToCinemaType(
+            cinema,
+            cinemaAddressResponse.data.address,
+            cinemaSessionsResponse.data["movie sessions"]
+          );
+
+          return cinemaType;
+        });
+        
+        const cinemasData = await Promise.all(cinemaPromises);
+
+        setCinemas(cinemasData as CinemaType[]);
         setMessage('');
       } catch (err) {
         setMessage('Não foi possível carregar os cinemas.');
@@ -91,7 +129,6 @@ function CinemasPage() {
                 key={index}
                 name={cinema.name}
                 location={cinema.location!}
-                price={cinema.price!}
                 address={cinema.address!}
                 schedule={cinema.schedule!}
                 commuteInfo={cinema.commuteInfo!}

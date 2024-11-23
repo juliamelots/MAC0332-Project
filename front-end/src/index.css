@@ -66,6 +66,12 @@ html, body {
   --bs-btn-hover-bg: var(--ac-red-light) !important;
 }
 
+.btn-ac-red-light {
+  /* Use alongside bootstrap 'btn' class */
+  --bs-btn-bg: var(--ac-red-lighter) !important;
+  --bs-btn-hover-bg: var(--ac-red-light) !important;
+}
+
 .btn-ac-black {
   /* Use alongside bootstrap 'btn' class */
   --bs-btn-bg: var(--ac-black) !important;

@@ -8,14 +8,16 @@ export interface CinemaType {
   latitude: string;
   longitude: string;
   location?: string; // mocked for now
-  price?: string; // mocked for now
   address?: {
-      home: { street: string; city: string };
-      destination: { street: string; city: string };
+    home: { street: string; city: string };
+    destination: { street: string; city: string };
   }; // mocked for now
-  schedule?: { time: string; subs: string }[]; // mocked for now
+  schedule?: {
+    date: string; 
+    sessions: { time: string; subs: string }[]; 
+  }[]; // grouped by date
   commuteInfo?: {
-      bestRoute: { time: string; transportation: string };
-      shortestDistance: string;
+    bestRoute: { time: string; transportation: string };
+    shortestDistance: string;
   }; // mocked for now
 };
