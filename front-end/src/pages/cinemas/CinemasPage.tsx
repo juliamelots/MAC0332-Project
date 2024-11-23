@@ -10,9 +10,9 @@ import { useState, useEffect } from "react";
 import "./CinemasPage.css"
 
 function convertToCinemaType(cinemaName: string, address: string, sessions: any[]): CinemaType {
-  const mockLocation = "Shopping Iguatemi"; 
-  const mockLatitude = "0.0000"; 
-  const mockLongitude = "0.0000"; 
+  const mockLocation = "Shopping Iguatemi";
+  const mockLatitude = "0.0000";
+  const mockLongitude = "0.0000";
   cinemaName = cinemaName
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -20,7 +20,7 @@ function convertToCinemaType(cinemaName: string, address: string, sessions: any[
 
   const [street, city] = address.split('-').map((part) => part.trim());
   const addressObject = {
-    home: { street: "Av. Minha Rua, 1234", city: "São Paulo, São Paulo" }, 
+    home: { street: "Av. Minha Rua, 1234", city: "São Paulo, São Paulo" },
     destination: { street, city },
   };
 
@@ -42,7 +42,7 @@ function convertToCinemaType(cinemaName: string, address: string, sessions: any[
   }));
 
   return {
-    name: cinemaName, 
+    name: cinemaName,
     latitude: mockLatitude,
     longitude: mockLongitude,
     location: mockLocation,
@@ -50,7 +50,7 @@ function convertToCinemaType(cinemaName: string, address: string, sessions: any[
     schedule: schedule,
     commuteInfo: {
       bestRoute: { time: "40 minutos", transportation: "Ônibus" },
-      shortestDistance: "12 km", 
+      shortestDistance: "12 km",
     },
   };
 }
@@ -58,7 +58,7 @@ function convertToCinemaType(cinemaName: string, address: string, sessions: any[
 
 function CinemasPage() {
   const location = useLocation();
-  const movieName = location.state?.movieName || '';
+  const movieName: string = location.state?.movieName || '';
   const movieId: string = location.state?.movieId || '';
 
   const [cinemas, setCinemas] = useState<CinemaType[]>([]);
@@ -84,7 +84,7 @@ function CinemasPage() {
 
           return cinemaType;
         });
-        
+
         const cinemasData = await Promise.all(cinemaPromises);
 
         setCinemas(cinemasData as CinemaType[]);
@@ -103,7 +103,10 @@ function CinemasPage() {
 
   const filteredCinemas = cinemas.filter((cinema) => {
     const selectedDistanceInKm = parseFloat(selectedDistance);
-    const cinemaDistanceInKm = parseFloat(cinema.commuteInfo?.shortestDistance?.replace(' km', ''));
+    const cinemaDistanceInKm = cinema.commuteInfo?.shortestDistance
+      ? parseFloat(cinema.commuteInfo.shortestDistance.replace(' km', ''))
+      : 0; 
+
     return cinemaDistanceInKm <= selectedDistanceInKm;
   });;
 
@@ -124,9 +127,8 @@ function CinemasPage() {
       <div className="bg-ac-black cinemas overflow-auto d-flex flex-column vh-100">
         {cinemas.length > 0 ? (
           filteredCinemas.length > 0 ? (
-            filteredCinemas.map((cinema, index) => (
-              <CinemaCard className="cinema-card"
-                key={index}
+            filteredCinemas.map((cinema) => (
+              <CinemaCard
                 name={cinema.name}
                 location={cinema.location!}
                 address={cinema.address!}

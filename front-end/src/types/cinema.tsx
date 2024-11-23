@@ -13,9 +13,9 @@ export interface CinemaType {
     destination: { street: string; city: string };
   }; // mocked for now
   schedule?: {
-    date: string; 
-    sessions: { time: string; subs: string }[]; 
-  }[]; // grouped by date
+    date: string;
+    sessions: { time: string; subs: string }[];
+  }[]; 
   commuteInfo?: {
     bestRoute: { time: string; transportation: string };
     shortestDistance: string;

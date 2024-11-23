@@ -8,7 +8,10 @@ interface CinemaCardProps {
     home: { street: string; city: string };
     destination: { street: string; city: string };
   };
-  schedule: { time: string; subs: string }[];
+  schedule: {
+    date: string;
+    sessions: { time: string; subs: string }[];
+  }[];
   commuteInfo: {
     bestRoute: { time: string; transportation: string };
     shortestDistance: string;
