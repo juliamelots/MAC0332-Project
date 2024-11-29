@@ -88,6 +88,16 @@ def extract_theaters(verbose = False):
     driver.close()
     return theater_list
 
+def get_ticket_prices():
+    driver = webdriver.Firefox(OPTIONS)    
+    driver.implicitly_wait(TIMEOUT)
+
+    driver.get(TICKET_URL)
+
+    time.sleep(10)
+
+    driver.close()
+
 def save_theaters(path, theater_list):
     file = open(path + f"/cinemas.json",mode = 'w+')
     file.write(json.dumps([theater.to_dict() for theater in theater_list], ensure_ascii=False))
@@ -102,17 +112,6 @@ def save_sessions(path, session_list):
     file = open(path + f"/sessions.json", mode = 'w+')
     file.write(json.dumps([session.to_dict() for session in session_list], ensure_ascii=False))
     file.close()
-
-def get_ticket_prices():
-    driver = webdriver.Firefox(OPTIONS)    
-    driver.implicitly_wait(TIMEOUT)
-
-    driver.get(TICKET_URL)
-
-    time.sleep(10)
-
-    driver.close()
-
 
 def main():
 
