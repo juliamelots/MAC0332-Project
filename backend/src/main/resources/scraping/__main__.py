@@ -109,7 +109,14 @@ def get_ticket_prices():
 
     driver.get(TICKET_URL)
 
+    time.sleep(10)
+
+    driver.close()
+
+
 def main():
+
+    pricing = get_ticket_prices()
     theater_list = extract_theaters()
     movie_list = extract_movies()
     
