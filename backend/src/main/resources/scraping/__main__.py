@@ -4,7 +4,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from movie import Movie
-from const import OPTIONS, TIMEOUT, TIME_BETWEEN_REQUESTS, OUTPUT_PATH
+from const import OPTIONS, TIMEOUT, TIME_BETWEEN_REQUESTS, OUTPUT_PATH, TICKET_URL
 from theater import Theater
 from session import Session
 import json
@@ -102,6 +102,12 @@ def save_sessions(path, session_list):
     file = open(path + f"/sessions.json", mode = 'w+')
     file.write(json.dumps([session.to_dict() for session in session_list], ensure_ascii=False))
     file.close()
+
+def get_ticket_prices():
+    driver = webdriver.Firefox(OPTIONS)    
+    driver.implicitly_wait(TIMEOUT)
+
+    driver.get(TICKET_URL)
 
 def main():
     theater_list = extract_theaters()
