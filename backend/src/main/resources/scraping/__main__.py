@@ -103,17 +103,14 @@ def get_ticket_prices():
         price_info = price.find_elements(By.XPATH,"./td")
         pricing.append(
             {
-                "formaPagamento": price_info[0].text,
                 "transporte": price_info[0].text,
                 "preco": price_info[1].text
             }
         )
-        
-    print(pricing)
-
-    time.sleep(10)
 
     driver.close()
+
+    return pricing
 
 def save_theaters(path, theater_list):
     file = open(path + f"/cinemas.json",mode = 'w+')
@@ -130,9 +127,19 @@ def save_sessions(path, session_list):
     file.write(json.dumps([session.to_dict() for session in session_list], ensure_ascii=False))
     file.close()
 
+def save_pricing(path, pricing_list):
+    file = open(path + f"/pricing.json", mode = 'w+')
+    file.write(json.dumps(pricing_list, ensure_ascii=False))
+    file.close()
+
+
 def main():
 
-    pricing = get_ticket_prices()
+    pricing_list = get_ticket_prices()
+    save_pricing(OUTPUT_PATH,pricing_list)
+
+
+
     theater_list = extract_theaters()
     movie_list = extract_movies()
     
