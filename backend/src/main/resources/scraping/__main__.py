@@ -94,6 +94,23 @@ def get_ticket_prices():
 
     driver.get(TICKET_URL)
 
+    price_table = driver.find_element(By.XPATH,"//table [@style='height: 416px;']")
+    prices = price_table.find_elements(By.XPATH,"./tbody/tr")
+
+    pricing = []
+
+    for price in prices:
+        price_info = price.find_elements(By.XPATH,"./td")
+        pricing.append(
+            {
+                "formaPagamento": price_info[0].text,
+                "transporte": price_info[0].text,
+                "preco": price_info[1].text
+            }
+        )
+        
+    print(pricing)
+
     time.sleep(10)
 
     driver.close()
