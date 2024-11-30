@@ -1,9 +1,11 @@
 package com.rotadacultura.services
 
+import kotlinx.serialization.Serializable
 import kotlin.math.pow
 import kotlin.math.sqrt
 
 
+@Serializable
 data class Stop (
     val emtSituation: String,
     val emtLine: String,
@@ -20,6 +22,7 @@ data class Edge (
     val weight: Double
 )
 
+@Serializable
 data class Section (
     val stops: List<Stop>,
     val line: String
