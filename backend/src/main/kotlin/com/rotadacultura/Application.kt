@@ -1,6 +1,7 @@
 package com.rotadacultura
 
 import com.rotadacultura.plugins.*
+import com.rotadacultura.services.RouteCalculatorSingleton
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -36,6 +37,7 @@ fun Application.configureCors() {
 }
 
 fun Application.module() {
+    RouteCalculatorSingleton.initialize()
     install(ContentNegotiation) {
         json()
     }
