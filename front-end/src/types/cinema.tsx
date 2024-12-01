@@ -4,7 +4,8 @@ export interface CinemasType {
 };
 
 export interface CinemaType {
-  name: string;
+  movieName: string;
+  cinemaName: string;
   latitude: string;
   longitude: string;
   location?: string; // mocked for now
