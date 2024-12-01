@@ -8,6 +8,7 @@ import FilterSelector from "@/components/layout/filter-selector/FilterSelector";
 import Navbar from "@/components/layout/navbar/Navbar";
 import { useState, useEffect } from "react";
 import "./CinemasPage.css"
+import { UserLocationType } from "@/types/geolocation";
 
 function convertToCinemaType(cinemaName: string, address: string, sessions: any[]): CinemaType {
   const mockLocation = "Shopping Iguatemi";
@@ -60,6 +61,7 @@ function CinemasPage() {
   const location = useLocation();
   const movieName: string = location.state?.movieName || '';
   const movieId: string = location.state?.movieId || '';
+  const userLocation: UserLocationType = location.state?.userLocation || {};
 
   const [cinemas, setCinemas] = useState<CinemaType[]>([]);
   const [message, setMessage] = useState<string>('');
