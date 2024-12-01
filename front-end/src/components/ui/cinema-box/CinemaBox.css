@@ -1,0 +1,21 @@
+.blur-background {
+  padding: 30px;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.card.info-card {
+  border: 2px solid #873838;
+}
+
+.home-address-icon,
+.destination-address-icon,
+.generic-info-icon,
+.transportation-icon {
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+}

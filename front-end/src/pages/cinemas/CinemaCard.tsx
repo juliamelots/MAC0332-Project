@@ -1,22 +1,6 @@
-import "./CinemaCard.css";
+import { CinemaType } from "@/types/cinema";
 import { useState } from "react";
-
-interface CinemaCardProps {
-  name: string;
-  location: string;
-  address: {
-    home: { street: string; city: string };
-    destination: { street: string; city: string };
-  };
-  schedule: {
-    date: string;
-    sessions: { time: string; subs: string }[];
-  }[];
-  commuteInfo: {
-    bestRoute: { time: string; transportation: string };
-    shortestDistance: string;
-  };
-}
+import "./CinemaCard.css";
 
 interface AddressInfoProps {
   icon: string;
@@ -36,13 +20,8 @@ interface CommuteInfoProps {
   transportIcon?: string;
 }
 
-const CinemaCard = ({
-  name,
-  location,
-  address,
-  schedule,
-  commuteInfo,
-}: CinemaCardProps) => {
+const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
+  const { cinemaName, location, address, schedule, commuteInfo } = cinema;
   const [expandedDate, setExpandedDate] = useState<string | null>(null);
 
   const toggleDateExpansion = (date: string) => {
@@ -53,7 +32,7 @@ const CinemaCard = ({
     <div className="card p-4 card-container bg-ac-white">
       <div className="d-flex justify-content-between mb-3">
         <div>
-          <h5 className="text-dark">{name}</h5>
+          <h5 className="text-dark">{cinemaName}</h5>
           <p className="text-muted">{location}</p>
         </div>
         <div>

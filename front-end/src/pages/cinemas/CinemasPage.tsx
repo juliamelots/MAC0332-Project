@@ -9,8 +9,7 @@ import Navbar from "@/components/layout/navbar/Navbar";
 import { useState, useEffect } from "react";
 import "./CinemasPage.css"
 
-function convertToCinemaType(cinemaName: string, address: string, sessions: any[]): CinemaType {
-  const mockLocation = "Shopping Iguatemi";
+function convertToCinemaType(movieName: string, cinemaName: string, address: string, sessions: any[]): CinemaType {
   const mockLatitude = "0.0000";
   const mockLongitude = "0.0000";
   cinemaName = cinemaName
@@ -18,7 +17,11 @@ function convertToCinemaType(cinemaName: string, address: string, sessions: any[
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  const [street, city] = address.split('-').map((part) => part.trim());
+  const addressParts = address.split('-').map((part) => part.trim());
+  const [street, location = "", city] = addressParts.length === 3
+    ? addressParts
+    : [addressParts[0], "", addressParts[1]];
+
   const addressObject = {
     home: { street: "Av. Minha Rua, 1234", city: "São Paulo, São Paulo" },
     destination: { street, city },
@@ -42,10 +45,11 @@ function convertToCinemaType(cinemaName: string, address: string, sessions: any[
   }));
 
   return {
-    name: cinemaName,
+    movieName: movieName,
+    cinemaName: cinemaName,
     latitude: mockLatitude,
     longitude: mockLongitude,
-    location: mockLocation,
+    location: location,
     address: addressObject,
     schedule: schedule,
     commuteInfo: {
@@ -77,6 +81,7 @@ function CinemasPage() {
           const cinemaSessionsResponse = await axios.get(`/cinema/${cinema}/${movieId}/sessions`);
 
           const cinemaType = convertToCinemaType(
+            movieName,
             cinema,
             cinemaAddressResponse.data.address,
             cinemaSessionsResponse.data["movie sessions"]
@@ -128,13 +133,7 @@ function CinemasPage() {
         {cinemas.length > 0 ? (
           filteredCinemas.length > 0 ? (
             filteredCinemas.map((cinema) => (
-              <CinemaCard
-                name={cinema.name}
-                location={cinema.location!}
-                address={cinema.address!}
-                schedule={cinema.schedule!}
-                commuteInfo={cinema.commuteInfo!}
-              />
+              <CinemaCard cinema={cinema} />
             ))
           ) : (
             <div className="d-flex align-items-center justify-content-center h-100">
