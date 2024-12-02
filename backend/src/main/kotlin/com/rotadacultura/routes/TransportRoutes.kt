@@ -1,7 +1,6 @@
 package com.rotadacultura.routes
 
 import com.rotadacultura.model.Cinema
-import com.rotadacultura.services.RouteCalculator
 import com.rotadacultura.services.RouteCalculatorSingleton
 import io.ktor.server.response.*
 import io.ktor.http.*
@@ -14,12 +13,12 @@ fun Route.transportRouting() {
             try {
                 val userLatitude = call.request.queryParameters["user-latitude"]?.toDoubleOrNull()
                 val userLongitude = call.request.queryParameters["user-longitude"]?.toDoubleOrNull()
-                val cinemaName = call.request.queryParameters["cinema"]
-                if (userLatitude == null || userLongitude == null || cinemaName == null) {
+                val cinemaId = call.request.queryParameters["cinema"]
+                if (userLatitude == null || userLongitude == null || cinemaId == null) {
                     call.respond(HttpStatusCode.BadRequest, "Missing required parameters")
                     return@get
                 }
-                val cinema = Cinema.new(cinemaName) ?: throw IllegalStateException("Cinema not found")
+                val cinema = Cinema.newById(cinemaId) ?: throw IllegalStateException("Cinema not found")
                 val routeCalculator = RouteCalculatorSingleton.instance
                 val route = routeCalculator.calculateRoute(
                     userLatitude,
