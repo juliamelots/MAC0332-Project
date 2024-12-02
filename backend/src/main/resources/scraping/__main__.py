@@ -104,7 +104,7 @@ def get_ticket_prices():
         pricing.append(
             {
                 "transporte": price_info[0].text,
-                "preco": price_info[1].text
+                "preco": float(price_info[1].text[3:].replace(',','.'))
             }
         )
 
@@ -137,8 +137,6 @@ def main():
 
     pricing_list = get_ticket_prices()
     save_pricing(OUTPUT_PATH,pricing_list)
-
-
 
     theater_list = extract_theaters()
     movie_list = extract_movies()
