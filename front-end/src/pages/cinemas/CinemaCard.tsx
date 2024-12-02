@@ -1,5 +1,7 @@
 import { CinemaType } from "@/types/cinema";
+import { RouteDetailType } from "@/types/routes";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CinemaCard.css";
 
 interface AddressInfoProps {
@@ -21,11 +23,24 @@ interface CommuteInfoProps {
 }
 
 const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
+  const navigate = useNavigate();
   const { cinemaName, location, address, schedule, commuteInfo } = cinema;
   const [expandedDate, setExpandedDate] = useState<string | null>(null);
 
   const toggleDateExpansion = (date: string) => {
     setExpandedDate((prev) => (prev === date ? null : date));
+  };
+
+  const handleButtonClick = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    navigate("/routedetails", { 
+      state: {
+        home: address?.home.street,
+        destination: address?.destination.street,
+        cinemaTitle: cinemaName,
+        movieTitle: "Titanic"
+      }, 
+    });
   };
 
   return (
@@ -36,7 +51,7 @@ const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
           <p className="text-muted">{location}</p>
         </div>
         <div>
-          <button type="button" className="btn btn-outline-dark">
+          <button type="button" className="btn btn-outline-dark" onClick={handleButtonClick}>
             <i className="bi bi-plus-circle"></i>
           </button>
         </div>

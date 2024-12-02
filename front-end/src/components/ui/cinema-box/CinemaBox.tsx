@@ -1,5 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 import './CinemaBox.css';
+import { BusStopType } from '@/types/route';
+import BusStopContent from '@/pages/routeDetails/BusStopContent';
 
 interface CinemaBoxProps {
   movieName: string;
@@ -14,7 +16,8 @@ interface CinemaBoxProps {
     bestRoute: { time: string; transportation: string };
     shortestDistance: string;
   }; 
-  onVisualizeStops: () => void; 
+  busStops: BusStopType[];
+  goToStop: (coordinates: L.LatLngTuple) => void;
 }
 
 const CinemaBox = ({
@@ -24,16 +27,23 @@ const CinemaBox = ({
   priceTicket,
   priceTransportation,
   commuteInfo,
-  onVisualizeStops,
+  busStops,
+  goToStop,
 }: CinemaBoxProps) => {
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarVisible((prev) => !prev);
+  };
+
   return (
     <div className="blur-background bg-white">
       <div
-        className="card info-card shadow p-4 bg-white rounded h-100"
+        className="card info-card shadow p-4 bg-white rounded"
       >
         <div className="text-start mb-3">
           <button className="btn btn-link text-decoration-none text-secondary">
-            <i class="bi bi-arrow-left-square p-2"></i>
+            <i className="bi bi-arrow-left-square p-2"></i>
             <span>Voltar</span>
           </button>    
         </div>
@@ -51,13 +61,19 @@ const CinemaBox = ({
                 </div>
                 <p className="text-muted ms-4">{address.home.city}</p>
               </div>
-
-              <button 
-                className="btn btn-outline-secondary btn-sm w-100 mb-3"
-                onClick={onVisualizeStops} 
-              >
-                Visualizar paradas
-              </button>
+              <div className="relative">
+                <button 
+                  className="btn btn-outline-secondary btn-sm w-100 mb-3"
+                  onClick={toggleSidebar} 
+                >
+                  Visualizar paradas
+                </button>
+                  {sidebarVisible && (
+                      <div className="absolute left-0 top-full w-full bg-gray-900">
+                          <BusStopContent busStops={busStops} onStopClick={goToStop} />
+                      </div>
+                  )}
+              </div>
 
               <div className="mb-4">
                 <div className="d-flex align-items-center">

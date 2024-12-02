@@ -1,16 +1,18 @@
 import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import { CinemaType } from "@/types/cinema";
+import { UserLocationType } from "@/types/geolocation";
+import { getAddress } from "@/utils/getAddress";
 import axios from "@/services/axiosInstance";
 
 import CinemaCard from "@/pages/cinemas/CinemaCard";
 import FilterSelector from "@/components/layout/filter-selector/FilterSelector";
 import Navbar from "@/components/layout/navbar/Navbar";
-import { useState, useEffect } from "react";
-import "./CinemasPage.css"
-import { UserLocationType } from "@/types/geolocation";
 
-function convertToCinemaType(movieName: string, cinemaName: string, address: string, sessions: any[]): CinemaType {
+import "./CinemasPage.css"
+
+function convertToCinemaType(movieName: string, cinemaName: string, address: string, sessions: any[], userAddress: { street?: string; city?: string } | null): CinemaType {
   const mockLatitude = "0.0000";
   const mockLongitude = "0.0000";
   cinemaName = cinemaName
@@ -24,7 +26,7 @@ function convertToCinemaType(movieName: string, cinemaName: string, address: str
     : [addressParts[0], "", addressParts[1]];
 
   const addressObject = {
-    home: { street: "Av. Minha Rua, 1234", city: "São Paulo, São Paulo" },
+    home: { street: userAddress?.street, city: userAddress?.city },
     destination: { street, city },
   };
 
@@ -60,7 +62,6 @@ function convertToCinemaType(movieName: string, cinemaName: string, address: str
   };
 }
 
-
 function CinemasPage() {
   const location = useLocation();
   const movieName: string = location.state?.movieName || '';
@@ -69,8 +70,38 @@ function CinemasPage() {
 
   const [cinemas, setCinemas] = useState<CinemaType[]>([]);
   const [message, setMessage] = useState<string>('');
+  const [isAddressLoading, setIsAddressLoading] = useState(false);
+  const [userAddress, setUserAddress] = useState<{ street: string; city: string }>({
+    street: '',
+    city: '',
+  });
   let cinemaIdsData: string[] = [];
 
+  useEffect(() => {
+    const fetchUserAddress = async () => {
+        try {
+            if(userLocation) {
+              setIsAddressLoading(true); // Inicia o carregamento
+              const address = await getAddress(userLocation?.latitude, userLocation?.longitude);
+              if (address) {
+                  setUserAddress({
+                      street: address.road || "Desconhecido",
+                      city: address.city || "Desconhecido",
+                  });
+              }
+            }
+        } catch (error) {
+            console.error("Erro ao carregar endereço do usuário:", error);
+        } finally {
+            setIsAddressLoading(false); // Finaliza o carregamento
+        }
+    };
+
+    if (userLocation) {
+        fetchUserAddress();
+    }
+}, [userLocation]);
+  
   useEffect(() => {
     const fetchCinemas = async () => {
       try {
@@ -86,7 +117,8 @@ function CinemasPage() {
             movieName,
             cinema,
             cinemaAddressResponse.data.address,
-            cinemaSessionsResponse.data["movie sessions"]
+            cinemaSessionsResponse.data["movie sessions"],
+            userAddress
           );
 
           return cinemaType;
@@ -101,8 +133,11 @@ function CinemasPage() {
         console.error(err);
       }
     };
-    fetchCinemas();
-  }, []);
+
+    if (!isAddressLoading && userAddress) {
+      fetchCinemas();
+    }
+  }, [isAddressLoading, userAddress, movieId, movieName]);
 
   const distanceOptions = ["5 km", "10 km", "15 km", "20 km"];
 
@@ -134,8 +169,8 @@ function CinemasPage() {
       <div className="bg-ac-black cinemas overflow-auto d-flex flex-column vh-100">
         {cinemas.length > 0 ? (
           filteredCinemas.length > 0 ? (
-            filteredCinemas.map((cinema) => (
-              <CinemaCard cinema={cinema} />
+            filteredCinemas.map((cinema, idx) => (
+              <CinemaCard key={idx} cinema={cinema} />
             ))
           ) : (
             <div className="d-flex align-items-center justify-content-center h-100">
