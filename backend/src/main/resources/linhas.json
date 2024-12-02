@@ -1,0 +1,1915 @@
+[{
+    "nome": "AZUL",
+    "paradas": [{
+        "nome": "TUCURUVI",
+        "coordenadas": {
+            "x": 336278.64209541294,
+            "y": 7402432.165674833
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "PARADA INGLESA",
+            "coordenadas": {
+                "x": 335708.19390873564,
+                "y": 7401644.758256197
+            }
+        }]
+    }, {
+        "nome": "PARADA INGLESA",
+        "coordenadas": {
+            "x": 335708.19390873564,
+            "y": 7401644.758256197
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "AYRTON SENNA-JARDIM SÃO PAULO",
+            "coordenadas": {
+                "x": 334868.31778528204,
+                "y": 7401039.063829554
+            }
+        }, {
+            "nome": "TUCURUVI",
+            "coordenadas": {
+                "x": 336278.64209541294,
+                "y": 7402432.165674833
+            }
+        }]
+    }, {
+        "nome": "AYRTON SENNA-JARDIM SÃO PAULO",
+        "coordenadas": {
+            "x": 334868.31778528204,
+            "y": 7401039.063829554
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SANTANA",
+            "coordenadas": {
+                "x": 334098.34623333125,
+                "y": 7399905.987789704
+            }
+        }, {
+            "nome": "PARADA INGLESA",
+            "coordenadas": {
+                "x": 335708.19390873564,
+                "y": 7401644.758256197
+            }
+        }]
+    }, {
+        "nome": "SANTANA",
+        "coordenadas": {
+            "x": 334098.34623333125,
+            "y": 7399905.987789704
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CARANDIRU",
+            "coordenadas": {
+                "x": 334087.37400837534,
+                "y": 7399163.08702139
+            }
+        }, {
+            "nome": "AYRTON SENNA-JARDIM SÃO PAULO",
+            "coordenadas": {
+                "x": 334868.31778528204,
+                "y": 7401039.063829554
+            }
+        }]
+    }, {
+        "nome": "CARANDIRU",
+        "coordenadas": {
+            "x": 334087.37400837534,
+            "y": 7399163.08702139
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "PORTUGUESA-TIETÊ",
+            "coordenadas": {
+                "x": 334075.67379692127,
+                "y": 7398403.671989027
+            }
+        }, {
+            "nome": "SANTANA",
+            "coordenadas": {
+                "x": 334098.34623333125,
+                "y": 7399905.987789704
+            }
+        }]
+    }, {
+        "nome": "PORTUGUESA-TIETÊ",
+        "coordenadas": {
+            "x": 334075.67379692127,
+            "y": 7398403.671989027
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "ARMÊNIA",
+            "coordenadas": {
+                "x": 333660.75738355645,
+                "y": 7397361.35926249
+            }
+        }, {
+            "nome": "CARANDIRU",
+            "coordenadas": {
+                "x": 334087.37400837534,
+                "y": 7399163.08702139
+            }
+        }]
+    }, {
+        "nome": "ARMÊNIA",
+        "coordenadas": {
+            "x": 333660.75738355645,
+            "y": 7397361.35926249
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "TIRADENTES",
+            "coordenadas": {
+                "x": 333378.10677540285,
+                "y": 7396786.884356748
+            }
+        }, {
+            "nome": "PORTUGUESA-TIETÊ",
+            "coordenadas": {
+                "x": 334075.67379692127,
+                "y": 7398403.671989027
+            }
+        }]
+    }, {
+        "nome": "TIRADENTES",
+        "coordenadas": {
+            "x": 333378.10677540285,
+            "y": 7396786.884356748
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "LUZ",
+            "coordenadas": {
+                "x": 333232.95855868945,
+                "y": 7396093.673843038
+            }
+        }, {
+            "nome": "ARMÊNIA",
+            "coordenadas": {
+                "x": 333660.75738355645,
+                "y": 7397361.35926249
+            }
+        }]
+    }, {
+        "nome": "LUZ",
+        "coordenadas": {
+            "x": 333232.95855868945,
+            "y": 7396093.673843038
+        },
+        "pontosProximos": [{
+            "nome": "LUZ",
+            "coordenadas": {
+                "x": 333148.13787931344,
+                "y": 7396175.502082352
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "SÃO BENTO",
+            "coordenadas": {
+                "x": 333191.33408739726,
+                "y": 7395297.792625714
+            }
+        }, {
+            "nome": "TIRADENTES",
+            "coordenadas": {
+                "x": 333378.10677540285,
+                "y": 7396786.884356748
+            }
+        }]
+    }, {
+        "nome": "SÃO BENTO",
+        "coordenadas": {
+            "x": 333191.33408739726,
+            "y": 7395297.792625714
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SÉ",
+            "coordenadas": {
+                "x": 333310.17304053425,
+                "y": 7394533.150332816
+            }
+        }, {
+            "nome": "LUZ",
+            "coordenadas": {
+                "x": 333232.95855868945,
+                "y": 7396093.673843038
+            }
+        }]
+    }, {
+        "nome": "SÉ",
+        "coordenadas": {
+            "x": 333310.17304053425,
+            "y": 7394533.150332816
+        },
+        "pontosProximos": [{
+            "nome": "SÉ",
+            "coordenadas": {
+                "x": 333305.33230446884,
+                "y": 7394541.848891843
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "JAPÃO-LIBERDADE",
+            "coordenadas": {
+                "x": 333045.1057196184,
+                "y": 7394089.781055858
+            }
+        }, {
+            "nome": "SÃO BENTO",
+            "coordenadas": {
+                "x": 333191.33408739726,
+                "y": 7395297.792625714
+            }
+        }]
+    }, {
+        "nome": "JAPÃO-LIBERDADE",
+        "coordenadas": {
+            "x": 333045.1057196184,
+            "y": 7394089.781055858
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SÃO JOAQUIM",
+            "coordenadas": {
+                "x": 332751.4252232264,
+                "y": 7393318.389260499
+            }
+        }, {
+            "nome": "SÉ",
+            "coordenadas": {
+                "x": 333310.17304053425,
+                "y": 7394533.150332816
+            }
+        }]
+    }, {
+        "nome": "SÃO JOAQUIM",
+        "coordenadas": {
+            "x": 332751.4252232264,
+            "y": 7393318.389260499
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "VERGUEIRO",
+            "coordenadas": {
+                "x": 332633.70168738125,
+                "y": 7392541.370069396
+            }
+        }, {
+            "nome": "JAPÃO-LIBERDADE",
+            "coordenadas": {
+                "x": 333045.1057196184,
+                "y": 7394089.781055858
+            }
+        }]
+    }, {
+        "nome": "VERGUEIRO",
+        "coordenadas": {
+            "x": 332633.70168738125,
+            "y": 7392541.370069396
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "PARAÍSO",
+            "coordenadas": {
+                "x": 332556.90256449,
+                "y": 7391786.309476363
+            }
+        }, {
+            "nome": "SÃO JOAQUIM",
+            "coordenadas": {
+                "x": 332751.4252232264,
+                "y": 7393318.389260499
+            }
+        }]
+    }, {
+        "nome": "PARAÍSO",
+        "coordenadas": {
+            "x": 332556.90256449,
+            "y": 7391786.309476363
+        },
+        "pontosProximos": [{
+            "nome": "PARAÍSO",
+            "coordenadas": {
+                "x": 332528.1866430653,
+                "y": 7391781.120198658
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "ANA ROSA",
+            "coordenadas": {
+                "x": 332800.8836382389,
+                "y": 7391176.321796013
+            }
+        }, {
+            "nome": "VERGUEIRO",
+            "coordenadas": {
+                "x": 332633.70168738125,
+                "y": 7392541.370069396
+            }
+        }]
+    }, {
+        "nome": "ANA ROSA",
+        "coordenadas": {
+            "x": 332800.8836382389,
+            "y": 7391176.321796013
+        },
+        "pontosProximos": [{
+            "nome": "ANA ROSA",
+            "coordenadas": {
+                "x": 332783.1136079654,
+                "y": 7391165.2655509
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "VILA MARIANA",
+            "coordenadas": {
+                "x": 333198.7874619091,
+                "y": 7390311.404781474
+            }
+        }, {
+            "nome": "PARAÍSO",
+            "coordenadas": {
+                "x": 332556.90256449,
+                "y": 7391786.309476363
+            }
+        }]
+    }, {
+        "nome": "VILA MARIANA",
+        "coordenadas": {
+            "x": 333198.7874619091,
+            "y": 7390311.404781474
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "VILA MARIANA",
+            "coordenadas": {
+                "x": 333198.7874619091,
+                "y": 7390311.404781474
+            }
+        }, {
+            "nome": "ANA ROSA",
+            "coordenadas": {
+                "x": 332800.8836382389,
+                "y": 7391176.321796013
+            }
+        }]
+    }, {
+        "nome": "VILA MARIANA",
+        "coordenadas": {
+            "x": 333198.7874619091,
+            "y": 7390311.404781474
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SANTA CRUZ",
+            "coordenadas": {
+                "x": 333003.179514583,
+                "y": 7389232.443278197
+            }
+        }, {
+            "nome": "VILA MARIANA",
+            "coordenadas": {
+                "x": 333198.7874619091,
+                "y": 7390311.404781474
+            }
+        }]
+    }, {
+        "nome": "SANTA CRUZ",
+        "coordenadas": {
+            "x": 333003.179514583,
+            "y": 7389232.443278197
+        },
+        "pontosProximos": [{
+            "nome": "SANTA CRUZ",
+            "coordenadas": {
+                "x": 332952.8028885692,
+                "y": 7389271.071078364
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "PRAÇA DA ÁRVORE",
+            "coordenadas": {
+                "x": 332896.14739159064,
+                "y": 7387922.944798081
+            }
+        }, {
+            "nome": "VILA MARIANA",
+            "coordenadas": {
+                "x": 333198.7874619091,
+                "y": 7390311.404781474
+            }
+        }]
+    }, {
+        "nome": "PRAÇA DA ÁRVORE",
+        "coordenadas": {
+            "x": 332896.14739159064,
+            "y": 7387922.944798081
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SAÚDE",
+            "coordenadas": {
+                "x": 332768.1359020663,
+                "y": 7387039.087999324
+            }
+        }, {
+            "nome": "SANTA CRUZ",
+            "coordenadas": {
+                "x": 333003.179514583,
+                "y": 7389232.443278197
+            }
+        }]
+    }, {
+        "nome": "SAÚDE",
+        "coordenadas": {
+            "x": 332768.1359020663,
+            "y": 7387039.087999324
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SÃO JUDAS",
+            "coordenadas": {
+                "x": 332616.5798382843,
+                "y": 7386246.280258754
+            }
+        }, {
+            "nome": "PRAÇA DA ÁRVORE",
+            "coordenadas": {
+                "x": 332896.14739159064,
+                "y": 7387922.944798081
+            }
+        }]
+    }, {
+        "nome": "SÃO JUDAS",
+        "coordenadas": {
+            "x": 332616.5798382843,
+            "y": 7386246.280258754
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CONCEIÇÃO",
+            "coordenadas": {
+                "x": 332575.7102714989,
+                "y": 7385179.660421749
+            }
+        }, {
+            "nome": "SAÚDE",
+            "coordenadas": {
+                "x": 332768.1359020663,
+                "y": 7387039.087999324
+            }
+        }]
+    }, {
+        "nome": "CONCEIÇÃO",
+        "coordenadas": {
+            "x": 332575.7102714989,
+            "y": 7385179.660421749
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "JABAQUARA",
+            "coordenadas": {
+                "x": 332624.65743015375,
+                "y": 7383950.247403986
+            }
+        }, {
+            "nome": "SÃO JUDAS",
+            "coordenadas": {
+                "x": 332616.5798382843,
+                "y": 7386246.280258754
+            }
+        }]
+    }, {
+        "nome": "JABAQUARA",
+        "coordenadas": {
+            "x": 332624.65743015375,
+            "y": 7383950.247403986
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CONCEIÇÃO",
+            "coordenadas": {
+                "x": 332575.7102714989,
+                "y": 7385179.660421749
+            }
+        }]
+    }]
+}, {
+    "nome": "VERDE",
+    "paradas": [{
+        "nome": "VILA MADALENA",
+        "coordenadas": {
+            "x": 327406.7357830685,
+            "y": 7394975.260853086
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SANTUÁRIO NOSSA SENHORA DE FÁTIMA-SUMARÉ",
+            "coordenadas": {
+                "x": 328772.2624577443,
+                "y": 7394478.996804967
+            }
+        }]
+    }, {
+        "nome": "SANTUÁRIO NOSSA SENHORA DE FÁTIMA-SUMARÉ",
+        "coordenadas": {
+            "x": 328772.2624577443,
+            "y": 7394478.996804967
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CLÍNICAS",
+            "coordenadas": {
+                "x": 329468.052218247,
+                "y": 7394144.354938008
+            }
+        }, {
+            "nome": "VILA MADALENA",
+            "coordenadas": {
+                "x": 327406.7357830685,
+                "y": 7394975.260853086
+            }
+        }]
+    }, {
+        "nome": "CLÍNICAS",
+        "coordenadas": {
+            "x": 329468.052218247,
+            "y": 7394144.354938008
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CONSOLAÇÃO",
+            "coordenadas": {
+                "x": 330449.02274055994,
+                "y": 7393810.549796373
+            }
+        }, {
+            "nome": "SANTUÁRIO NOSSA SENHORA DE FÁTIMA-SUMARÉ",
+            "coordenadas": {
+                "x": 328772.2624577443,
+                "y": 7394478.996804967
+            }
+        }]
+    }, {
+        "nome": "CONSOLAÇÃO",
+        "coordenadas": {
+            "x": 330449.02274055994,
+            "y": 7393810.549796373
+        },
+        "pontosProximos": [{
+            "nome": "PAULISTA",
+            "coordenadas": {
+                "x": 330344.7532294784,
+                "y": 7394047.69536134
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "TRIANON-MASP",
+            "coordenadas": {
+                "x": 331148.36714204465,
+                "y": 7393161.491709098
+            }
+        }, {
+            "nome": "CLÍNICAS",
+            "coordenadas": {
+                "x": 329468.052218247,
+                "y": 7394144.354938008
+            }
+        }]
+    }, {
+        "nome": "TRIANON-MASP",
+        "coordenadas": {
+            "x": 331148.36714204465,
+            "y": 7393161.491709098
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "BRIGADEIRO",
+            "coordenadas": {
+                "x": 331876.5533783876,
+                "y": 7392536.519990819
+            }
+        }, {
+            "nome": "CONSOLAÇÃO",
+            "coordenadas": {
+                "x": 330449.02274055994,
+                "y": 7393810.549796373
+            }
+        }]
+    }, {
+        "nome": "BRIGADEIRO",
+        "coordenadas": {
+            "x": 331876.5533783876,
+            "y": 7392536.519990819
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "PARAÍSO",
+            "coordenadas": {
+                "x": 332528.1866430653,
+                "y": 7391781.120198658
+            }
+        }, {
+            "nome": "TRIANON-MASP",
+            "coordenadas": {
+                "x": 331148.36714204465,
+                "y": 7393161.491709098
+            }
+        }]
+    }, {
+        "nome": "PARAÍSO",
+        "coordenadas": {
+            "x": 332528.1866430653,
+            "y": 7391781.120198658
+        },
+        "pontosProximos": [{
+            "nome": "PARAÍSO",
+            "coordenadas": {
+                "x": 332556.90256449,
+                "y": 7391786.309476363
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "ANA ROSA",
+            "coordenadas": {
+                "x": 332783.1136079654,
+                "y": 7391165.2655509
+            }
+        }, {
+            "nome": "BRIGADEIRO",
+            "coordenadas": {
+                "x": 331876.5533783876,
+                "y": 7392536.519990819
+            }
+        }]
+    }, {
+        "nome": "ANA ROSA",
+        "coordenadas": {
+            "x": 332783.1136079654,
+            "y": 7391165.2655509
+        },
+        "pontosProximos": [{
+            "nome": "ANA ROSA",
+            "coordenadas": {
+                "x": 332800.8836382389,
+                "y": 7391176.321796013
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "CHÁCARA KLABIN",
+            "coordenadas": {
+                "x": 333628.2592399176,
+                "y": 7389925.975777136
+            }
+        }, {
+            "nome": "PARAÍSO",
+            "coordenadas": {
+                "x": 332528.1866430653,
+                "y": 7391781.120198658
+            }
+        }]
+    }, {
+        "nome": "CHÁCARA KLABIN",
+        "coordenadas": {
+            "x": 333628.2592399176,
+            "y": 7389925.975777136
+        },
+        "pontosProximos": [{
+            "nome": "CHÁCARA KLABIN",
+            "coordenadas": {
+                "x": 333628.2592399176,
+                "y": 7389925.975777136
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "SANTOS-IMIGRANTES",
+            "coordenadas": {
+                "x": 334631.1572692752,
+                "y": 7389571.239603045
+            }
+        }, {
+            "nome": "ANA ROSA",
+            "coordenadas": {
+                "x": 332783.1136079654,
+                "y": 7391165.2655509
+            }
+        }]
+    }, {
+        "nome": "SANTOS-IMIGRANTES",
+        "coordenadas": {
+            "x": 334631.1572692752,
+            "y": 7389571.239603045
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "ALTO DO IPIRANGA",
+            "coordenadas": {
+                "x": 335489.0784018927,
+                "y": 7388887.963803915
+            }
+        }, {
+            "nome": "CHÁCARA KLABIN",
+            "coordenadas": {
+                "x": 333628.2592399176,
+                "y": 7389925.975777136
+            }
+        }]
+    }, {
+        "nome": "ALTO DO IPIRANGA",
+        "coordenadas": {
+            "x": 335489.0784018927,
+            "y": 7388887.963803915
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SACOMÃ",
+            "coordenadas": {
+                "x": 336426.7553997516,
+                "y": 7388984.853133192
+            }
+        }, {
+            "nome": "SANTOS-IMIGRANTES",
+            "coordenadas": {
+                "x": 334631.1572692752,
+                "y": 7389571.239603045
+            }
+        }]
+    }, {
+        "nome": "SACOMÃ",
+        "coordenadas": {
+            "x": 336426.7553997516,
+            "y": 7388984.853133192
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "TAMANDUATEÍ",
+            "coordenadas": {
+                "x": 337803.94534220896,
+                "y": 7389938.988883723
+            }
+        }, {
+            "nome": "ALTO DO IPIRANGA",
+            "coordenadas": {
+                "x": 335489.0784018927,
+                "y": 7388887.963803915
+            }
+        }]
+    }, {
+        "nome": "TAMANDUATEÍ",
+        "coordenadas": {
+            "x": 337803.94534220896,
+            "y": 7389938.988883723
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "VILA PRUDENTE",
+            "coordenadas": {
+                "x": 338576.0013701035,
+                "y": 7390901.38600502
+            }
+        }, {
+            "nome": "SACOMÃ",
+            "coordenadas": {
+                "x": 336426.7553997516,
+                "y": 7388984.853133192
+            }
+        }]
+    }, {
+        "nome": "VILA PRUDENTE",
+        "coordenadas": {
+            "x": 338576.0013701035,
+            "y": 7390901.38600502
+        },
+        "pontosProximos": [{
+            "nome": "VILA PRUDENTE",
+            "coordenadas": {
+                "x": 338384.46868313,
+                "y": 7390852.351278825
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "TAMANDUATEÍ",
+            "coordenadas": {
+                "x": 337803.94534220896,
+                "y": 7389938.988883723
+            }
+        }]
+    }]
+}, {
+    "nome": "VERMELHA",
+    "paradas": [{
+        "nome": "PALMEIRAS-BARRA FUNDA",
+        "coordenadas": {
+            "x": 329777.8104471179,
+            "y": 7397267.185332295
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "MARECHAL DEODORO",
+            "coordenadas": {
+                "x": 330946.0350367885,
+                "y": 7396442.24306779
+            }
+        }]
+    }, {
+        "nome": "MARECHAL DEODORO",
+        "coordenadas": {
+            "x": 330946.0350367885,
+            "y": 7396442.24306779
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SANTA CECÍLIA",
+            "coordenadas": {
+                "x": 331683.5670327073,
+                "y": 7395772.95169542
+            }
+        }, {
+            "nome": "PALMEIRAS-BARRA FUNDA",
+            "coordenadas": {
+                "x": 329777.8104471179,
+                "y": 7397267.185332295
+            }
+        }]
+    }, {
+        "nome": "SANTA CECÍLIA",
+        "coordenadas": {
+            "x": 331683.5670327073,
+            "y": 7395772.95169542
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "REPÚBLICA",
+            "coordenadas": {
+                "x": 332274.04034481174,
+                "y": 7395308.382427695
+            }
+        }, {
+            "nome": "MARECHAL DEODORO",
+            "coordenadas": {
+                "x": 330946.0350367885,
+                "y": 7396442.24306779
+            }
+        }]
+    }, {
+        "nome": "REPÚBLICA",
+        "coordenadas": {
+            "x": 332274.04034481174,
+            "y": 7395308.382427695
+        },
+        "pontosProximos": [{
+            "nome": "REPÚBLICA",
+            "coordenadas": {
+                "x": 332287.5571282633,
+                "y": 7395232.308249094
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "ANHANGABAÚ",
+            "coordenadas": {
+                "x": 332714.4514344799,
+                "y": 7394864.461563792
+            }
+        }, {
+            "nome": "SANTA CECÍLIA",
+            "coordenadas": {
+                "x": 331683.5670327073,
+                "y": 7395772.95169542
+            }
+        }]
+    }, {
+        "nome": "ANHANGABAÚ",
+        "coordenadas": {
+            "x": 332714.4514344799,
+            "y": 7394864.461563792
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SÉ",
+            "coordenadas": {
+                "x": 333305.33230446884,
+                "y": 7394541.848891843
+            }
+        }, {
+            "nome": "REPÚBLICA",
+            "coordenadas": {
+                "x": 332274.04034481174,
+                "y": 7395308.382427695
+            }
+        }]
+    }, {
+        "nome": "SÉ",
+        "coordenadas": {
+            "x": 333305.33230446884,
+            "y": 7394541.848891843
+        },
+        "pontosProximos": [{
+            "nome": "SÉ",
+            "coordenadas": {
+                "x": 333310.17304053425,
+                "y": 7394533.150332816
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "PEDRO II",
+            "coordenadas": {
+                "x": 334041.4327138305,
+                "y": 7394683.769673675
+            }
+        }, {
+            "nome": "ANHANGABAÚ",
+            "coordenadas": {
+                "x": 332714.4514344799,
+                "y": 7394864.461563792
+            }
+        }]
+    }, {
+        "nome": "PEDRO II",
+        "coordenadas": {
+            "x": 334041.4327138305,
+            "y": 7394683.769673675
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "BRÁS",
+            "coordenadas": {
+                "x": 335060.0905516312,
+                "y": 7394898.085708711
+            }
+        }, {
+            "nome": "SÉ",
+            "coordenadas": {
+                "x": 333305.33230446884,
+                "y": 7394541.848891843
+            }
+        }]
+    }, {
+        "nome": "BRÁS",
+        "coordenadas": {
+            "x": 335060.0905516312,
+            "y": 7394898.085708711
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "BRESSER-MOOCA",
+            "coordenadas": {
+                "x": 335912.7332437742,
+                "y": 7395063.613244616
+            }
+        }, {
+            "nome": "PEDRO II",
+            "coordenadas": {
+                "x": 334041.4327138305,
+                "y": 7394683.769673675
+            }
+        }]
+    }, {
+        "nome": "BRESSER-MOOCA",
+        "coordenadas": {
+            "x": 335912.7332437742,
+            "y": 7395063.613244616
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "BELÉM",
+            "coordenadas": {
+                "x": 337688.1811975385,
+                "y": 7395465.915468011
+            }
+        }, {
+            "nome": "BRÁS",
+            "coordenadas": {
+                "x": 335060.0905516312,
+                "y": 7394898.085708711
+            }
+        }]
+    }, {
+        "nome": "BELÉM",
+        "coordenadas": {
+            "x": 337688.1811975385,
+            "y": 7395465.915468011
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "TATUAPÉ",
+            "coordenadas": {
+                "x": 339096.3078134011,
+                "y": 7395767.494597994
+            }
+        }, {
+            "nome": "BRESSER-MOOCA",
+            "coordenadas": {
+                "x": 335912.7332437742,
+                "y": 7395063.613244616
+            }
+        }]
+    }, {
+        "nome": "TATUAPÉ",
+        "coordenadas": {
+            "x": 339096.3078134011,
+            "y": 7395767.494597994
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CARRÃO",
+            "coordenadas": {
+                "x": 340331.5073514917,
+                "y": 7396067.7314215
+            }
+        }, {
+            "nome": "BELÉM",
+            "coordenadas": {
+                "x": 337688.1811975385,
+                "y": 7395465.915468011
+            }
+        }]
+    }, {
+        "nome": "CARRÃO",
+        "coordenadas": {
+            "x": 340331.5073514917,
+            "y": 7396067.7314215
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "PENHA",
+            "coordenadas": {
+                "x": 342552.65432383073,
+                "y": 7396575.7210880015
+            }
+        }, {
+            "nome": "TATUAPÉ",
+            "coordenadas": {
+                "x": 339096.3078134011,
+                "y": 7395767.494597994
+            }
+        }]
+    }, {
+        "nome": "PENHA",
+        "coordenadas": {
+            "x": 342552.65432383073,
+            "y": 7396575.7210880015
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "VILA MATILDE",
+            "coordenadas": {
+                "x": 343708.93539349094,
+                "y": 7396765.73642141
+            }
+        }, {
+            "nome": "CARRÃO",
+            "coordenadas": {
+                "x": 340331.5073514917,
+                "y": 7396067.7314215
+            }
+        }]
+    }, {
+        "nome": "VILA MATILDE",
+        "coordenadas": {
+            "x": 343708.93539349094,
+            "y": 7396765.73642141
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "GUILHERMINA-ESPERANÇA",
+            "coordenadas": {
+                "x": 345181.964852624,
+                "y": 7397070.921077993
+            }
+        }, {
+            "nome": "PENHA",
+            "coordenadas": {
+                "x": 342552.65432383073,
+                "y": 7396575.7210880015
+            }
+        }]
+    }, {
+        "nome": "GUILHERMINA-ESPERANÇA",
+        "coordenadas": {
+            "x": 345181.964852624,
+            "y": 7397070.921077993
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "PATRIARCA",
+            "coordenadas": {
+                "x": 346732.7118234509,
+                "y": 7396874.617164849
+            }
+        }, {
+            "nome": "VILA MATILDE",
+            "coordenadas": {
+                "x": 343708.93539349094,
+                "y": 7396765.73642141
+            }
+        }]
+    }, {
+        "nome": "PATRIARCA",
+        "coordenadas": {
+            "x": 346732.7118234509,
+            "y": 7396874.617164849
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "ARTUR ALVIM",
+            "coordenadas": {
+                "x": 348457.5921919339,
+                "y": 7395884.164706923
+            }
+        }, {
+            "nome": "GUILHERMINA-ESPERANÇA",
+            "coordenadas": {
+                "x": 345181.964852624,
+                "y": 7397070.921077993
+            }
+        }]
+    }, {
+        "nome": "ARTUR ALVIM",
+        "coordenadas": {
+            "x": 348457.5921919339,
+            "y": 7395884.164706923
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CORINTHIANS-ITAQUERA",
+            "coordenadas": {
+                "x": 349839.3799263657,
+                "y": 7395675.04694196
+            }
+        }, {
+            "nome": "PATRIARCA",
+            "coordenadas": {
+                "x": 346732.7118234509,
+                "y": 7396874.617164849
+            }
+        }]
+    }, {
+        "nome": "CORINTHIANS-ITAQUERA",
+        "coordenadas": {
+            "x": 349839.3799263657,
+            "y": 7395675.04694196
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "ARTUR ALVIM",
+            "coordenadas": {
+                "x": 348457.5921919339,
+                "y": 7395884.164706923
+            }
+        }]
+    }]
+}, {
+    "nome": "LILAS",
+    "paradas": [{
+        "nome": "CHÁCARA KLABIN",
+        "coordenadas": {
+            "x": 333628.2592399176,
+            "y": 7389925.975777136
+        },
+        "pontosProximos": [{
+            "nome": "CHÁCARA KLABIN",
+            "coordenadas": {
+                "x": 333628.2592399176,
+                "y": 7389925.975777136
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "SANTA CRUZ",
+            "coordenadas": {
+                "x": 332952.8028885692,
+                "y": 7389271.071078364
+            }
+        }]
+    }, {
+        "nome": "SANTA CRUZ",
+        "coordenadas": {
+            "x": 332952.8028885692,
+            "y": 7389271.071078364
+        },
+        "pontosProximos": [{
+            "nome": "SANTA CRUZ",
+            "coordenadas": {
+                "x": 333003.179514583,
+                "y": 7389232.443278197
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "HOSPITAL SÃO PAULO",
+            "coordenadas": {
+                "x": 332117.3601456324,
+                "y": 7389296.435769393
+            }
+        }, {
+            "nome": "CHÁCARA KLABIN",
+            "coordenadas": {
+                "x": 333628.2592399176,
+                "y": 7389925.975777136
+            }
+        }]
+    }, {
+        "nome": "HOSPITAL SÃO PAULO",
+        "coordenadas": {
+            "x": 332117.3601456324,
+            "y": 7389296.435769393
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "AACD-SERVIDOR",
+            "coordenadas": {
+                "x": 331459.46308746876,
+                "y": 7389346.877091318
+            }
+        }, {
+            "nome": "SANTA CRUZ",
+            "coordenadas": {
+                "x": 332952.8028885692,
+                "y": 7389271.071078364
+            }
+        }]
+    }, {
+        "nome": "AACD-SERVIDOR",
+        "coordenadas": {
+            "x": 331459.46308746876,
+            "y": 7389346.877091318
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "MOEMA",
+            "coordenadas": {
+                "x": 330427.17057804065,
+                "y": 7388704.406630976
+            }
+        }, {
+            "nome": "HOSPITAL SÃO PAULO",
+            "coordenadas": {
+                "x": 332117.3601456324,
+                "y": 7389296.435769393
+            }
+        }]
+    }, {
+        "nome": "MOEMA",
+        "coordenadas": {
+            "x": 330427.17057804065,
+            "y": 7388704.406630976
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "EUCALIPTOS",
+            "coordenadas": {
+                "x": 329721.16769407084,
+                "y": 7387941.258156203
+            }
+        }, {
+            "nome": "AACD-SERVIDOR",
+            "coordenadas": {
+                "x": 331459.46308746876,
+                "y": 7389346.877091318
+            }
+        }]
+    }, {
+        "nome": "EUCALIPTOS",
+        "coordenadas": {
+            "x": 329721.16769407084,
+            "y": 7387941.258156203
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CAMPO BELO",
+            "coordenadas": {
+                "x": 328372.6604002365,
+                "y": 7386947.605247745
+            }
+        }, {
+            "nome": "MOEMA",
+            "coordenadas": {
+                "x": 330427.17057804065,
+                "y": 7388704.406630976
+            }
+        }]
+    }, {
+        "nome": "CAMPO BELO",
+        "coordenadas": {
+            "x": 328372.6604002365,
+            "y": 7386947.605247745
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "BROOKLIN",
+            "coordenadas": {
+                "x": 327800.8890577214,
+                "y": 7386023.878318231
+            }
+        }, {
+            "nome": "EUCALIPTOS",
+            "coordenadas": {
+                "x": 329721.16769407084,
+                "y": 7387941.258156203
+            }
+        }]
+    }, {
+        "nome": "BROOKLIN",
+        "coordenadas": {
+            "x": 327800.8890577214,
+            "y": 7386023.878318231
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "BORBA GATO",
+            "coordenadas": {
+                "x": 327300.0967112298,
+                "y": 7385341.450285096
+            }
+        }, {
+            "nome": "CAMPO BELO",
+            "coordenadas": {
+                "x": 328372.6604002365,
+                "y": 7386947.605247745
+            }
+        }]
+    }, {
+        "nome": "BORBA GATO",
+        "coordenadas": {
+            "x": 327300.0967112298,
+            "y": 7385341.450285096
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "ALTO DA BOA VISTA",
+            "coordenadas": {
+                "x": 326694.5252393895,
+                "y": 7384432.7279054485
+            }
+        }, {
+            "nome": "BROOKLIN",
+            "coordenadas": {
+                "x": 327800.8890577214,
+                "y": 7386023.878318231
+            }
+        }]
+    }, {
+        "nome": "ALTO DA BOA VISTA",
+        "coordenadas": {
+            "x": 326694.5252393895,
+            "y": 7384432.7279054485
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "ADOLFO PINHEIRO",
+            "coordenadas": {
+                "x": 326212.7397490527,
+                "y": 7383524.11957858
+            }
+        }, {
+            "nome": "BORBA GATO",
+            "coordenadas": {
+                "x": 327300.0967112298,
+                "y": 7385341.450285096
+            }
+        }]
+    }, {
+        "nome": "ADOLFO PINHEIRO",
+        "coordenadas": {
+            "x": 326212.7397490527,
+            "y": 7383524.11957858
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "LARGO TREZE",
+            "coordenadas": {
+                "x": 325642.5639874219,
+                "y": 7382984.49753746
+            }
+        }, {
+            "nome": "ALTO DA BOA VISTA",
+            "coordenadas": {
+                "x": 326694.5252393895,
+                "y": 7384432.7279054485
+            }
+        }]
+    }, {
+        "nome": "LARGO TREZE",
+        "coordenadas": {
+            "x": 325642.5639874219,
+            "y": 7382984.49753746
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SANTO AMARO",
+            "coordenadas": {
+                "x": 324481.4432329418,
+                "y": 7382827.99762288
+            }
+        }, {
+            "nome": "ADOLFO PINHEIRO",
+            "coordenadas": {
+                "x": 326212.7397490527,
+                "y": 7383524.11957858
+            }
+        }]
+    }, {
+        "nome": "SANTO AMARO",
+        "coordenadas": {
+            "x": 324481.4432329418,
+            "y": 7382827.99762288
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "GIOVANNI GRONCHI",
+            "coordenadas": {
+                "x": 323122.92166707246,
+                "y": 7384116.914114306
+            }
+        }, {
+            "nome": "LARGO TREZE",
+            "coordenadas": {
+                "x": 325642.5639874219,
+                "y": 7382984.49753746
+            }
+        }]
+    }, {
+        "nome": "GIOVANNI GRONCHI",
+        "coordenadas": {
+            "x": 323122.92166707246,
+            "y": 7384116.914114306
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "VILA DAS BELEZAS",
+            "coordenadas": {
+                "x": 321930.55525712844,
+                "y": 7384496.532976297
+            }
+        }, {
+            "nome": "SANTO AMARO",
+            "coordenadas": {
+                "x": 324481.4432329418,
+                "y": 7382827.99762288
+            }
+        }]
+    }, {
+        "nome": "VILA DAS BELEZAS",
+        "coordenadas": {
+            "x": 321930.55525712844,
+            "y": 7384496.532976297
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CAMPO LIMPO",
+            "coordenadas": {
+                "x": 320593.60775595234,
+                "y": 7383485.695851603
+            }
+        }, {
+            "nome": "GIOVANNI GRONCHI",
+            "coordenadas": {
+                "x": 323122.92166707246,
+                "y": 7384116.914114306
+            }
+        }]
+    }, {
+        "nome": "CAMPO LIMPO",
+        "coordenadas": {
+            "x": 320593.60775595234,
+            "y": 7383485.695851603
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CAPÃO REDONDO",
+            "coordenadas": {
+                "x": 319683.7948884157,
+                "y": 7382376.269482095
+            }
+        }, {
+            "nome": "VILA DAS BELEZAS",
+            "coordenadas": {
+                "x": 321930.55525712844,
+                "y": 7384496.532976297
+            }
+        }]
+    }, {
+        "nome": "CAPÃO REDONDO",
+        "coordenadas": {
+            "x": 319683.7948884157,
+            "y": 7382376.269482095
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CAMPO LIMPO",
+            "coordenadas": {
+                "x": 320593.60775595234,
+                "y": 7383485.695851603
+            }
+        }]
+    }]
+}, {
+    "nome": "PRATA",
+    "paradas": [{
+        "nome": "VILA PRUDENTE",
+        "coordenadas": {
+            "x": 338384.46868313,
+            "y": 7390852.351278825
+        },
+        "pontosProximos": [{
+            "nome": "VILA PRUDENTE",
+            "coordenadas": {
+                "x": 338576.0013701035,
+                "y": 7390901.38600502
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "ORATÓRIO",
+            "coordenadas": {
+                "x": 340615.27483533043,
+                "y": 7391161.705251858
+            }
+        }]
+    }, {
+        "nome": "ORATÓRIO",
+        "coordenadas": {
+            "x": 340615.27483533043,
+            "y": 7391161.705251858
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SÃO LUCAS",
+            "coordenadas": {
+                "x": 342412.9881668675,
+                "y": 7390393.007911447
+            }
+        }, {
+            "nome": "VILA PRUDENTE",
+            "coordenadas": {
+                "x": 338384.46868313,
+                "y": 7390852.351278825
+            }
+        }]
+    }, {
+        "nome": "SÃO LUCAS",
+        "coordenadas": {
+            "x": 342412.9881668675,
+            "y": 7390393.007911447
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "CAMILO HADDAD",
+            "coordenadas": {
+                "x": 343101.6170254986,
+                "y": 7389722.826372011
+            }
+        }, {
+            "nome": "ORATÓRIO",
+            "coordenadas": {
+                "x": 340615.27483533043,
+                "y": 7391161.705251858
+            }
+        }]
+    }, {
+        "nome": "CAMILO HADDAD",
+        "coordenadas": {
+            "x": 343101.6170254986,
+            "y": 7389722.826372011
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "VILA TOLSTÓI",
+            "coordenadas": {
+                "x": 344189.6717131782,
+                "y": 7389124.523216328
+            }
+        }, {
+            "nome": "SÃO LUCAS",
+            "coordenadas": {
+                "x": 342412.9881668675,
+                "y": 7390393.007911447
+            }
+        }]
+    }, {
+        "nome": "VILA TOLSTÓI",
+        "coordenadas": {
+            "x": 344189.6717131782,
+            "y": 7389124.523216328
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "VILA UNIÃO",
+            "coordenadas": {
+                "x": 345312.6543139948,
+                "y": 7388920.587130362
+            }
+        }, {
+            "nome": "CAMILO HADDAD",
+            "coordenadas": {
+                "x": 343101.6170254986,
+                "y": 7389722.826372011
+            }
+        }]
+    }, {
+        "nome": "VILA UNIÃO",
+        "coordenadas": {
+            "x": 345312.6543139948,
+            "y": 7388920.587130362
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "JARDIM PLANALTO",
+            "coordenadas": {
+                "x": 346242.5099378333,
+                "y": 7388429.732274958
+            }
+        }, {
+            "nome": "VILA TOLSTÓI",
+            "coordenadas": {
+                "x": 344189.6717131782,
+                "y": 7389124.523216328
+            }
+        }]
+    }, {
+        "nome": "JARDIM PLANALTO",
+        "coordenadas": {
+            "x": 346242.5099378333,
+            "y": 7388429.732274958
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SAPOPEMBA",
+            "coordenadas": {
+                "x": 346825.076521783,
+                "y": 7387620.514509711
+            }
+        }, {
+            "nome": "VILA UNIÃO",
+            "coordenadas": {
+                "x": 345312.6543139948,
+                "y": 7388920.587130362
+            }
+        }]
+    }, {
+        "nome": "SAPOPEMBA",
+        "coordenadas": {
+            "x": 346825.076521783,
+            "y": 7387620.514509711
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "FAZENDA DA JUTA",
+            "coordenadas": {
+                "x": 348245.48256521695,
+                "y": 7387974.765267497
+            }
+        }, {
+            "nome": "JARDIM PLANALTO",
+            "coordenadas": {
+                "x": 346242.5099378333,
+                "y": 7388429.732274958
+            }
+        }]
+    }, {
+        "nome": "FAZENDA DA JUTA",
+        "coordenadas": {
+            "x": 348245.48256521695,
+            "y": 7387974.765267497
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SÃO MATEUS",
+            "coordenadas": {
+                "x": 349346.88711940567,
+                "y": 7387941.959712099
+            }
+        }, {
+            "nome": "SAPOPEMBA",
+            "coordenadas": {
+                "x": 346825.076521783,
+                "y": 7387620.514509711
+            }
+        }]
+    }, {
+        "nome": "SÃO MATEUS",
+        "coordenadas": {
+            "x": 349346.88711940567,
+            "y": 7387941.959712099
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "FAZENDA DA JUTA",
+            "coordenadas": {
+                "x": 348245.48256521695,
+                "y": 7387974.765267497
+            }
+        }]
+    }]
+}, {
+    "nome": "AMARELA",
+    "paradas": [{
+        "nome": "LUZ",
+        "coordenadas": {
+            "x": 333148.13787931344,
+            "y": 7396175.502082352
+        },
+        "pontosProximos": [{
+            "nome": "LUZ",
+            "coordenadas": {
+                "x": 333232.95855868945,
+                "y": 7396093.673843038
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "REPÚBLICA",
+            "coordenadas": {
+                "x": 332287.5571282633,
+                "y": 7395232.308249094
+            }
+        }]
+    }, {
+        "nome": "REPÚBLICA",
+        "coordenadas": {
+            "x": 332287.5571282633,
+            "y": 7395232.308249094
+        },
+        "pontosProximos": [{
+            "nome": "REPÚBLICA",
+            "coordenadas": {
+                "x": 332274.04034481174,
+                "y": 7395308.382427695
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "HIGIENÓPOLIS-MACKENZIE",
+            "coordenadas": {
+                "x": 331350.1696450549,
+                "y": 7394737.614968473
+            }
+        }, {
+            "nome": "LUZ",
+            "coordenadas": {
+                "x": 333148.13787931344,
+                "y": 7396175.502082352
+            }
+        }]
+    }, {
+        "nome": "HIGIENÓPOLIS-MACKENZIE",
+        "coordenadas": {
+            "x": 331350.1696450549,
+            "y": 7394737.614968473
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "PAULISTA",
+            "coordenadas": {
+                "x": 330344.7532294784,
+                "y": 7394047.69536134
+            }
+        }, {
+            "nome": "REPÚBLICA",
+            "coordenadas": {
+                "x": 332287.5571282633,
+                "y": 7395232.308249094
+            }
+        }]
+    }, {
+        "nome": "PAULISTA",
+        "coordenadas": {
+            "x": 330344.7532294784,
+            "y": 7394047.69536134
+        },
+        "pontosProximos": [{
+            "nome": "CONSOLAÇÃO",
+            "coordenadas": {
+                "x": 330449.02274055994,
+                "y": 7393810.549796373
+            }
+        }],
+        "pontosConectados": [{
+            "nome": "OSCAR FREIRE",
+            "coordenadas": {
+                "x": 329341.4144534321,
+                "y": 7393433.263144039
+            }
+        }, {
+            "nome": "HIGIENÓPOLIS-MACKENZIE",
+            "coordenadas": {
+                "x": 331350.1696450549,
+                "y": 7394737.614968473
+            }
+        }]
+    }, {
+        "nome": "OSCAR FREIRE",
+        "coordenadas": {
+            "x": 329341.4144534321,
+            "y": 7393433.263144039
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "FRADIQUE COUTINHO",
+            "coordenadas": {
+                "x": 328115.4742602567,
+                "y": 7392793.0862012375
+            }
+        }, {
+            "nome": "PAULISTA",
+            "coordenadas": {
+                "x": 330344.7532294784,
+                "y": 7394047.69536134
+            }
+        }]
+    }, {
+        "nome": "FRADIQUE COUTINHO",
+        "coordenadas": {
+            "x": 328115.4742602567,
+            "y": 7392793.0862012375
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "FARIA LIMA",
+            "coordenadas": {
+                "x": 327114.0471004122,
+                "y": 7392671.675924914
+            }
+        }, {
+            "nome": "OSCAR FREIRE",
+            "coordenadas": {
+                "x": 329341.4144534321,
+                "y": 7393433.263144039
+            }
+        }]
+    }, {
+        "nome": "FARIA LIMA",
+        "coordenadas": {
+            "x": 327114.0471004122,
+            "y": 7392671.675924914
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "PINHEIROS",
+            "coordenadas": {
+                "x": 326327.2957216949,
+                "y": 7392659.555941153
+            }
+        }, {
+            "nome": "FRADIQUE COUTINHO",
+            "coordenadas": {
+                "x": 328115.4742602567,
+                "y": 7392793.0862012375
+            }
+        }]
+    }, {
+        "nome": "PINHEIROS",
+        "coordenadas": {
+            "x": 326327.2957216949,
+            "y": 7392659.555941153
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "BUTANTÃ",
+            "coordenadas": {
+                "x": 325665.6320395882,
+                "y": 7392119.001959706
+            }
+        }, {
+            "nome": "FARIA LIMA",
+            "coordenadas": {
+                "x": 327114.0471004122,
+                "y": 7392671.675924914
+            }
+        }]
+    }, {
+        "nome": "BUTANTÃ",
+        "coordenadas": {
+            "x": 325665.6320395882,
+            "y": 7392119.001959706
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "SÃO PAULO-MORUMBI",
+            "coordenadas": {
+                "x": 324093.4074848638,
+                "y": 7390505.686565061
+            }
+        }, {
+            "nome": "PINHEIROS",
+            "coordenadas": {
+                "x": 326327.2957216949,
+                "y": 7392659.555941153
+            }
+        }]
+    }, {
+        "nome": "SÃO PAULO-MORUMBI",
+        "coordenadas": {
+            "x": 324093.4074848638,
+            "y": 7390505.686565061
+        },
+        "pontosProximos": [],
+        "pontosConectados": [{
+            "nome": "BUTANTÃ",
+            "coordenadas": {
+                "x": 325665.6320395882,
+                "y": 7392119.001959706
+            }
+        }]
+    }]
+}]

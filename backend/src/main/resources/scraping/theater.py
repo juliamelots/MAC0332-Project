@@ -39,6 +39,7 @@ class Theater():
             else:
                 raise RuntimeError()
         
+        price_dict = {}
         #Get sessions for each day
         for day in days:
             try:
@@ -60,6 +61,12 @@ class Theater():
                         session_times = session_type.find_elements(By.XPATH,"./div/a/div | ./div/button/a/div | ./div/button/button/div")
                     except Exception as e:
                         print(e)
+
+                    try:
+                        price_dict[(movie_name,) + tuple(session_categories)] = session_type.find_elements(By.XPATH,"./div/a | ./div/button/a")[0].get_attribute("href")
+                    except Exception as e:
+                        print(e)
+
                     session_times = [session_time.text for session_time in session_times]
                     for session_time in session_times:
                         self.session_list.append(Session(session_time,day_text,self.id,movie_name,session_categories))
@@ -75,6 +82,7 @@ class Theater():
         current_url = driver.current_url
         driver.close()
         
+        print(price_dict)
         driver.switch_to.window(driver.window_handles[0])
         self.coordinates = tuple([ i.strip('@') for i in current_url.split('/')[6].split(',')[:2]])
         

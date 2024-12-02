@@ -4,7 +4,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from movie import Movie
-from const import OPTIONS, TIMEOUT, TIME_BETWEEN_REQUESTS, OUTPUT_PATH
+from const import OPTIONS, TIMEOUT, TIME_BETWEEN_REQUESTS, OUTPUT_PATH, TICKET_URL
 from theater import Theater
 from session import Session
 import json
@@ -88,6 +88,30 @@ def extract_theaters(verbose = False):
     driver.close()
     return theater_list
 
+def get_ticket_prices():
+    driver = webdriver.Firefox(OPTIONS)    
+    driver.implicitly_wait(TIMEOUT)
+
+    driver.get(TICKET_URL)
+
+    price_table = driver.find_element(By.XPATH,"//table [@style='height: 416px;']")
+    prices = price_table.find_elements(By.XPATH,"./tbody/tr")
+
+    pricing = []
+
+    for price in prices:
+        price_info = price.find_elements(By.XPATH,"./td")
+        pricing.append(
+            {
+                "transporte": price_info[0].text,
+                "preco": float(price_info[1].text[3:].replace(',','.'))
+            }
+        )
+
+    driver.close()
+
+    return pricing
+
 def save_theaters(path, theater_list):
     file = open(path + f"/cinemas.json",mode = 'w+')
     file.write(json.dumps([theater.to_dict() for theater in theater_list], ensure_ascii=False))
@@ -103,7 +127,17 @@ def save_sessions(path, session_list):
     file.write(json.dumps([session.to_dict() for session in session_list], ensure_ascii=False))
     file.close()
 
+def save_pricing(path, pricing_list):
+    file = open(path + f"/pricing.json", mode = 'w+')
+    file.write(json.dumps(pricing_list, ensure_ascii=False))
+    file.close()
+
+
 def main():
+
+    pricing_list = get_ticket_prices()
+    save_pricing(OUTPUT_PATH,pricing_list)
+
     theater_list = extract_theaters()
     movie_list = extract_movies()
     
