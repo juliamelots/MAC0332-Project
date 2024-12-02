@@ -14,6 +14,7 @@ interface CinemaBoxProps {
     bestRoute: { time: string; transportation: string };
     shortestDistance: string;
   }; 
+  onVisualizeStops: () => void; 
 }
 
 const CinemaBox = ({
@@ -23,6 +24,7 @@ const CinemaBox = ({
   priceTicket,
   priceTransportation,
   commuteInfo,
+  onVisualizeStops,
 }: CinemaBoxProps) => {
   return (
     <div className="blur-background bg-white">
@@ -50,7 +52,10 @@ const CinemaBox = ({
                 <p className="text-muted ms-4">{address.home.city}</p>
               </div>
 
-              <button className="btn btn-outline-secondary btn-sm w-100 mb-3">
+              <button 
+                className="btn btn-outline-secondary btn-sm w-100 mb-3"
+                onClick={onVisualizeStops} 
+              >
                 Visualizar paradas
               </button>
 
