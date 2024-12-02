@@ -1,18 +1,26 @@
 package com.rotadacultura.services
 
+import ch.qos.logback.core.util.Loader.getResource
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.*
+import java.io.File
 import kotlin.math.pow
 import kotlin.math.sqrt
 
 
 @Serializable
 data class Stop (
-    val emtSituation: String,
-    val emtLine: String,
-    val emtType: String,
-    val emtName: String,
+    val line: String,
+    val type: String,
+    val name: String,
     val latitude: Double,
     val longitude: Double
+)
+
+@Serializable
+data class Line (
+    val name: String,
+    val stops: List<Stop>
 )
 
 data class Edge (
@@ -28,35 +36,79 @@ data class Section (
     val line: String
 )
 
+// helper classes to parse json with line's information
+@Serializable
+data class SubwayLineData(
+    val nome: String,
+    val paradas: List<StopData>
+)
+
+@Serializable
+data class StopData(
+    val nome: String,
+    val coordenadas: Coordinates,
+    val pontosConectados: List<ConnectedStop> = emptyList()
+)
+
+@Serializable
+data class Coordinates(
+    val x: Double,
+    val y: Double
+)
+
+@Serializable
+data class ConnectedStop(
+    val nome: String
+)
 
 class RouteCalculator {
 
     private val stops = mutableListOf<Stop>()
     private val graph = mutableMapOf<Stop, MutableList<Edge>>()
 
+    companion object {
+        private val subwayLinesData: List<SubwayLineData> by lazy {
+            val fileContent = File(RouteCalculator::class.java.classLoader.getResource("subway_lines.json")!!.toURI()).readText()
+            Json {
+               ignoreUnknownKeys = true
+            }.decodeFromString(fileContent)
+        }
+    }
+
     init {
-        loadStops()
         buildGraph()
     }
 
-    private fun loadStops() {
-        // parse the stops file
-    }
-
     private fun buildGraph() {
-        //for (stop in stops) {
-            // now I have to in some way have access to all the stops you can
-            // go from a given stop to create the edges
-            //for (otherStop in stop.nextStops) {
-                //val distance = calculate_distance(
-                    //stop.latitude,
-                    //stop.longitude,
-                    //otherStop.latitude,
-                    //otherStop.longitude
-                //)
-                //graph[stop]!!.add(Edge(stop, otherStop, distance))
-            //}
-        //}
+        for (lineData in subwayLinesData) {
+            val lineName = lineData.nome
+            for (stopData in lineData.paradas) {
+                val stop = Stop(
+                    line = lineName,
+                    type = "metro",
+                    name = stopData.nome,
+                    latitude = stopData.coordenadas.x,
+                    longitude = stopData.coordenadas.y
+                )
+                stops.add(stop)
+            }
+        }
+
+        for (lineData in subwayLinesData) {
+            val lineName = lineData.nome
+            for (stopData in lineData.paradas) {
+                val fromStop = stops.find { it.name == stopData.nome } ?: continue
+                for (connectedStopData in stopData.pontosConectados) {
+                    val toStop = stops.find { it.name == connectedStopData.nome } ?: continue
+                    val weight = calculateDistance(
+                        fromStop.latitude, fromStop.longitude,
+                        toStop.latitude, toStop.longitude
+                    )
+                    val edge = Edge(from = fromStop, to = toStop, line = lineName, weight = weight)
+                    graph.computeIfAbsent(fromStop) { mutableListOf() }.add(edge)
+                }
+            }
+        }
     }
 
     private fun calculateDistance(startX: Double, startY: Double, endX: Double, endY: Double): Double {
@@ -119,6 +171,9 @@ class RouteCalculator {
         for (i in 0 until route.size - 1) {
             val stop = route[i]
             val nextStop = route[i + 1]
+
+            // case where the start end the end are the same
+            if (stop == nextStop) continue
 
             // find the edge connecting this stop to the next
             val edge = graph[stop]?.find { it.to == nextStop }
