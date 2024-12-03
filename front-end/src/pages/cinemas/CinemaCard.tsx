@@ -26,10 +26,14 @@ interface CommuteInfoProps {
 const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
   const navigate = useNavigate();
   const { cinemaName, location, address, schedule, commuteInfo } = cinema;
-  const [expandedDate, setExpandedDate] = useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  const toggleDateExpansion = (date: string) => {
-    setExpandedDate((prev) => (prev === date ? null : date));
+  const openPopup = (scheduleItem: any) => {
+    setSelectedDate(scheduleItem);
+  };
+
+  const closePopup = () => {
+    setSelectedDate(null);
   };
 
   const handleButtonClick = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -59,6 +63,7 @@ const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
         </div>
       </div>
 
+      {/* Addresses info */}
       <div className="d-flex flex-wrap mb-4">
         <div className="flex-grow-1 mb-3 mb-md-0">
           <AddressInfo
@@ -77,25 +82,37 @@ const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
         </div>
       </div>
 
-      <div className="dates-container">
-        <h5 className="mb-3 fs-6">Datas das sessões</h5>
+      <div>
+        <h6 className="text-dark mb-3">Datas das sessões</h6>
+      </div>
+
+      {/* Session dates grid */}
+      <div className="dates-grid mb-4">
         {schedule.map((scheduleItem) => (
-          <div key={scheduleItem.date} className="mb-3">
-            <button
-              className="btn btn-ac-red-light"
-              onClick={() => toggleDateExpansion(scheduleItem.date)}
-            >
-              {scheduleItem.date}
-            </button>
-            {expandedDate === scheduleItem.date && (
-              <div className="schedule-info mt-3">
-                <ScheduleInfo schedule={scheduleItem.sessions} />
-              </div>
-            )}
-          </div>
+          <button
+            key={scheduleItem.date}
+            className="btn btn-ac-red-light"
+            onClick={() => openPopup(scheduleItem)}
+          >
+            {scheduleItem.date}
+          </button>
         ))}
       </div>
 
+      {/* Popup modal */}
+      {selectedDate && (
+        <div className="popup-overlay" onClick={closePopup}>
+          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+            <h5 className="mb-3 fs-6">{selectedDate.date}</h5>
+            <ScheduleInfo schedule={selectedDate.sessions} />
+            <button className="btn btn-ac-red mt-3 text-white" onClick={closePopup}>
+              Fechar
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Commute Info */}
       <div className="d-flex flex-wrap">
         <div className="flex-grow-1 mb-3 mb-md-0">
           <CommuteInfo

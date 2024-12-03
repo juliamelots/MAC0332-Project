@@ -1,8 +1,8 @@
 .card-container {
-  max-width: 500px; 
+  max-width: 500px;
   margin: 0 auto;
   margin-top: 3rem;
-  width: 100%; 
+  width: 100%;
 }
 
 .home-address-icon,
@@ -14,16 +14,12 @@
   display: inline-flex;
 }
 
-.dates-container {
-  margin-bottom: 30px;
-}
-
 .schedule-scroll {
   display: flex;
   overflow-x: auto;
   gap: 10px;
-  padding-bottom: 10px; 
-  padding-top: 5px; 
+  padding-bottom: 10px;
+  padding-top: 5px;
 }
 
 .schedule-scroll::-webkit-scrollbar {
@@ -39,15 +35,54 @@
   background: #555;
 }
 
+.dates-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dates-grid button {
+  max-width: 120px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 768px) {
   .card-container {
     padding: 15px !important;
-    max-width: 100%; 
+    max-width: 100%;
   }
 }
 
 @media (min-width: 1200px) {
   .card-container {
-    max-width: 600px; 
+    max-width: 600px;
   }
 }
