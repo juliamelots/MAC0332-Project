@@ -18,8 +18,12 @@ data class Cinema(
             File(Cinema::class.java.classLoader.getResource("cinemas.json")!!.toURI()).readText()
         )
 
-        fun new(name: String): Cinema? {
+        fun newByName(name: String): Cinema? {
             return cinemasData.find { it.name == name }
+        }
+
+        fun newById(id: String): Cinema? {
+            return cinemasData.find { it.id == id }
         }
 
         fun getCinemasData(): List<Cinema> {
