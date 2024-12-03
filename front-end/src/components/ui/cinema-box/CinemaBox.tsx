@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './CinemaBox.css';
-import { BusStopType } from '@/types/route';
+import { StopType } from '@/types/route';
 import BusStopContent from '@/pages/routeDetails/BusStopContent';
 
 interface CinemaBoxProps {
@@ -16,7 +16,7 @@ interface CinemaBoxProps {
     bestRoute: { time: string; transportation: string };
     shortestDistance: string;
   }; 
-  busStops: BusStopType[];
+  busStops: StopType[];
   goToStop: (coordinates: L.LatLngTuple) => void;
 }
 

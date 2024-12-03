@@ -1,7 +1,9 @@
-export interface BusStopType {
+export interface StopType {
     id: number;
     name: string;
     coordinates: L.LatLngTuple;
+    type: string;
+    line?: string;
 };
 
 export interface AddressType {

@@ -6,12 +6,35 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import * as L from "leaflet";
 import "leaflet-routing-machine";
+import proj4 from 'proj4';
 
 import { getCoordinatesLatLon } from "@/utils/getCoordinatesLatLon";
-import { AddressType, BusStopType } from "@/types/route";
+import { AddressType, StopType } from "@/types/route";
 
 import Navbar from "@/components/layout/navbar/Navbar";
 import CinemaBox from "@/components/ui/cinema-box/CinemaBox";
+
+
+const getUTMZone = (longitude: number): number => {
+    return Math.floor((longitude + 180) / 6) + 1;
+};
+
+const convertToUTM = (lat: number, lon: number): { easting: number, northing: number, zone: number, hemisphere: string } => {
+    const zone = getUTMZone(lon);
+    const hemisphere = lat >= 0 ? 'N' : 'S';
+
+    const utmProjection = `+proj=utm +zone=${zone} ${hemisphere === 'S' ? '+south' : ''} +datum=WGS84 +units=m +no_defs`;
+    const wgs84 = '+proj=longlat +datum=WGS84 +no_defs';
+
+    const [easting, northing] = proj4(wgs84, utmProjection, [lon, lat]);
+
+    return {
+        easting,
+        northing,
+        zone,
+        hemisphere
+    };
+};
 
 const fetchRoute = async () => {
     const url = `http://router.project-osrm.org/route/v1/driving/-46.653000,-23.564250;-46.656500,-23.561250;-46.660000,-23.558000;-46.663000,-23.556000;-46.667000,-23.558000;-46.669000,-23.558800;-46.670000,-23.560000;-46.680000,-23.565100;-46.684000,-23.568000;-46.688000,-23.570000;-46.692000,-23.571000;-46.699000,-23.572080;-46.705000,-23.572080;-46.709800,-23.571092?overview=full&geometries=geojson`;
@@ -33,14 +56,14 @@ const addRouteToMap = async (map: L.Map) => {
 
 const RouteDetailsPage = () => {
     const [map, setMap] = useState<L.Map | null>(null);
-    const [busStops, setBusStops] = useState<BusStopType[]>([]); 
+    const [busStops, setBusStops] = useState<StopType[]>([]);
 
     const location = useLocation();
     const movieTitle: string = location.state?.movieTitle || '';
     const cinemaTitle: string = location.state?.cinemaTitle || '';
     const cinemaId: string = location.state?.cinemaId || '';
-    const lat: string = location.state?.latitude || '';
-    const lon: string = location.state?.longitude || '';
+    const userLat: string = location.state?.latitude || '';
+    const userLon: string = location.state?.longitude || '';
     const home: AddressType = location.state?.home || '';
     const destination: AddressType = location.state?.destination || '';
 
@@ -52,18 +75,22 @@ const RouteDetailsPage = () => {
     useEffect(() => {
         const fetchBusStops = async () => {
             try {
+                const utmCoords = convertToUTM(parseFloat(userLat), parseFloat(userLon));
+
                 const response = await axios.get(`/route`, {
                     params: {
-                        "user-latitude": lat,
-                        "user-longitude": lon,
+                        "user-latitude": utmCoords.northing,
+                        "user-longitude": utmCoords.easting,
                         "cinema": cinemaId,
                     },
                 });
 
-                 const fetchedStops: BusStopType[] = response.data[0].stops.map((stop: any, index: number) => ({
-                    id: index + 1,  
+                const fetchedStops: StopType[] = response.data[0].stops.map((stop: any, index: number) => ({
+                    id: index + 1,
                     name: stop.name,
-                    coordinates: [stop.latitude, stop.longitude] as L.LatLngTuple,
+                    coordinates: [stop.latitude, stop.longitude] as L.LatLngTuple, // TODO: convert stop coordinates to lat/lon (they're in UTM)
+                    type: stop.type,
+                    line: stop.line
                 }));
                 setBusStops(fetchedStops);
             } catch (err) {
