@@ -17,9 +17,10 @@ export interface Schedule {
 
 export interface CinemaType {
   movieName: string;
+  cinemaId: string;
   cinemaName: string;
-  latitude: string;
-  longitude: string;
+  latitude: number;
+  longitude: number;
   location?: string; // mocked for now
   address?: {
     home: AddressType;

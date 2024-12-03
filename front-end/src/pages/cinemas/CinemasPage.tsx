@@ -33,31 +33,31 @@ function CinemasPage() {
 
   useEffect(() => {
     const fetchUserAddress = async () => {
-        try {
-            if(userLocation) {
-              setIsAddressLoading(true); // Inicia o carregamento
-              const address = await getAddress(userLocation?.latitude, userLocation?.longitude);
-              
-              if (address) {
-                  setUserAddress({
-                      street: address.road || "Desconhecido",
-                      city: address.city || "Desconhecido",
-                      state: address.state || "Desconhecido"
-                  });
-              }
-            }
-        } catch (error) {
-            console.error("Erro ao carregar endereço do usuário:", error);
-        } finally {
-            setIsAddressLoading(false); // Finaliza o carregamento
+      try {
+        if (userLocation) {
+          setIsAddressLoading(true); // Inicia o carregamento
+          const address = await getAddress(userLocation?.latitude, userLocation?.longitude);
+
+          if (address) {
+            setUserAddress({
+              street: address.road || "Desconhecido",
+              city: address.city || "Desconhecido",
+              state: address.state || "Desconhecido"
+            });
+          }
         }
+      } catch (error) {
+        console.error("Erro ao carregar endereço do usuário:", error);
+      } finally {
+        setIsAddressLoading(false); // Finaliza o carregamento
+      }
     };
 
     if (userLocation) {
-        fetchUserAddress();
+      fetchUserAddress();
     }
-}, [userLocation]);
-  
+  }, [userLocation]);
+
   useEffect(() => {
     const fetchCinemas = async () => {
       try {
@@ -69,13 +69,15 @@ function CinemasPage() {
           const cinemaAddressResponse = await axios.get(`/cinema/${cinema}/address`);
           const cinemaSessionsResponse = await axios.get(`/cinema/${cinema}/${movieId}/sessions`);
 
-          const cinemaType = convertToCinemaType(
+          const cinemaType = userLocation ? convertToCinemaType(
             movieName,
             cinema,
             cinemaAddressResponse.data.address,
             cinemaSessionsResponse.data["movie sessions"],
-            userAddress
-          );
+            userAddress,
+            userLocation.latitude,  
+            userLocation.longitude  
+        ) : null;
 
           return cinemaType;
         });
@@ -103,7 +105,7 @@ function CinemasPage() {
     const selectedDistanceInKm = parseFloat(selectedDistance);
     const cinemaDistanceInKm = cinema.commuteInfo?.shortestDistance
       ? parseFloat(cinema.commuteInfo.shortestDistance.replace(' km', ''))
-      : 0; 
+      : 0;
 
     return cinemaDistanceInKm <= selectedDistanceInKm;
   });

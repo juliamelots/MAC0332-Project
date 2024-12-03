@@ -6,11 +6,11 @@ export function convertToCinemaType(
     cinemaName: string,
     address: string,
     sessions: any[],
-    userAddress: AddressType | null
+    userAddress: AddressType | null,
+    userLatitude: number,
+    userLongitude: number
 ): CinemaType {
-
-    const mockLatitude = "0.0000";
-    const mockLongitude = "0.0000";
+    const cinemaId = cinemaName;
     cinemaName = cinemaName
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -45,9 +45,10 @@ export function convertToCinemaType(
   
     return {
         movieName: movieName,
+        cinemaId: cinemaId,
         cinemaName: cinemaName,
-        latitude: mockLatitude,
-        longitude: mockLongitude,
+        latitude: userLatitude,  
+        longitude: userLongitude,
         location: location,
         address: addressObject,
         schedule: schedule,

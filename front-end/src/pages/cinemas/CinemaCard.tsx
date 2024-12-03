@@ -45,6 +45,9 @@ const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
         destination: address?.destination,
         cinemaTitle: cinemaName,
         movieTitle: cinema.movieName,
+        latitude: cinema.latitude,
+        longitude: cinema.longitude,
+        cinemaId: cinema.cinemaId
       }, 
     });
   };
