@@ -3,64 +3,17 @@ import { useState, useEffect } from "react";
 
 import { CinemaType } from "@/types/cinema";
 import { UserLocationType } from "@/types/geolocation";
+import { AddressType } from "@/types/route";
 import { getAddress } from "@/utils/getAddress";
 import axios from "@/services/axiosInstance";
 
 import CinemaCard from "@/pages/cinemas/CinemaCard";
 import FilterSelector from "@/components/layout/filter-selector/FilterSelector";
 import Navbar from "@/components/layout/navbar/Navbar";
+import { convertToCinemaType } from "@/utils/convertToCinemaType";
 
 import "./CinemasPage.css"
 
-function convertToCinemaType(movieName: string, cinemaName: string, address: string, sessions: any[], userAddress: { street?: string; city?: string } | null): CinemaType {
-  const mockLatitude = "0.0000";
-  const mockLongitude = "0.0000";
-  cinemaName = cinemaName
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-
-  const addressParts = address.split('-').map((part) => part.trim());
-  const [street, location = "", city] = addressParts.length === 3
-    ? addressParts
-    : [addressParts[0], "", addressParts[1]];
-
-  const addressObject = {
-    home: { street: userAddress?.street, city: userAddress?.city },
-    destination: { street, city },
-  };
-
-  const groupedSessions = sessions.reduce((acc, session) => {
-    const sessionDate = session.date;
-    if (!acc[sessionDate]) {
-      acc[sessionDate] = [];
-    }
-    acc[sessionDate].push({
-      time: session.time,
-      subs: session.categories.includes("LEGENDADO") ? "Legendado" : "Dublado",
-    });
-    return acc;
-  }, {} as Record<string, { time: string; subs: string }[]>);
-
-  const schedule = Object.keys(groupedSessions).map((date) => ({
-    date,
-    sessions: groupedSessions[date],
-  }));
-
-  return {
-    movieName: movieName,
-    cinemaName: cinemaName,
-    latitude: mockLatitude,
-    longitude: mockLongitude,
-    location: location,
-    address: addressObject,
-    schedule: schedule,
-    commuteInfo: {
-      bestRoute: { time: "40 minutos", transportation: "Ônibus" },
-      shortestDistance: "12 km",
-    },
-  };
-}
 
 function CinemasPage() {
   const location = useLocation();
@@ -71,9 +24,10 @@ function CinemasPage() {
   const [cinemas, setCinemas] = useState<CinemaType[]>([]);
   const [message, setMessage] = useState<string>('');
   const [isAddressLoading, setIsAddressLoading] = useState(false);
-  const [userAddress, setUserAddress] = useState<{ street: string; city: string }>({
+  const [userAddress, setUserAddress] = useState<AddressType>({
     street: '',
     city: '',
+    state: '',
   });
   let cinemaIdsData: string[] = [];
 
@@ -83,10 +37,12 @@ function CinemasPage() {
             if(userLocation) {
               setIsAddressLoading(true); // Inicia o carregamento
               const address = await getAddress(userLocation?.latitude, userLocation?.longitude);
+              
               if (address) {
                   setUserAddress({
                       street: address.road || "Desconhecido",
                       city: address.city || "Desconhecido",
+                      state: address.state || "Desconhecido"
                   });
               }
             }
@@ -150,7 +106,7 @@ function CinemasPage() {
       : 0; 
 
     return cinemaDistanceInKm <= selectedDistanceInKm;
-  });;
+  });
 
   return (
     <div className="d-flex flex-column h-100 w-100">

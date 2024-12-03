@@ -7,8 +7,7 @@ import * as L from "leaflet";
 import "leaflet-routing-machine";
 
 import { getCoordinatesLatLon } from "@/utils/getCoordinatesLatLon";
-import { BusStopType } from "@/types/route";
-import { RouteDetailType } from "@/types/route";
+import { AddressType, BusStopType } from "@/types/route";
 
 import Navbar from "@/components/layout/navbar/Navbar";
 import CinemaBox from "@/components/ui/cinema-box/CinemaBox";
@@ -53,8 +52,11 @@ const RouteDetailsPage = () => {
     const location = useLocation();
     const movieTitle: string = location.state?.movieTitle || '';
     const cinemaTitle: string = location.state?.cinemaTitle || '';
-    const address1: string = location.state?.home || '';
-    const address2 = location.state?.destination || '';
+    const home: AddressType = location.state?.home || '';
+    const destination: AddressType = location.state?.destination || '';
+
+    const address1 = `${home.street} - ${home.city}, ${home.state}, Brasil`
+    const address2 = `${destination.street} - ${destination.city}, São Paulo, Brasil`
     
     const [mockCinemaData, setMockCinemaData] = useState<any>(null);  // Estado para armazenar os dados
 
@@ -64,8 +66,8 @@ const RouteDetailsPage = () => {
             movieName: movieTitle,
             cinemaName: cinemaTitle,
             address: {
-                home:  { street: address1, city: "São Paulo, São Paulo" },
-                destination: { street: address2, city: "São Paulo, São Paulo" },
+                home:  { street: home.street, city: home.city },
+                destination: { street: destination.street, city: destination.city },
             },
             priceTicket: "15.00",
             priceTransportation: "7.00",
@@ -79,11 +81,8 @@ const RouteDetailsPage = () => {
     }
 
     useEffect(() => {
-        // Defina o estado mockCinemaData com os dados gerados pela mockData
-        const data = mockData();  // Chama a função mockData
-        setMockCinemaData(data);  // Atualiza o estado com os dados
-        
-
+        const data = mockData();
+        setMockCinemaData(data);
     }, []); 
 
     

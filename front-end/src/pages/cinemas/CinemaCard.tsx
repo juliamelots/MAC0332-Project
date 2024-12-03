@@ -7,8 +7,9 @@ import "./CinemaCard.css";
 interface AddressInfoProps {
   icon: string;
   iconClass: string;
-  street: string;
-  city: string;
+  street?: string;
+  city?: string;
+  state?: string;
 }
 
 interface ScheduleInfoProps {
@@ -33,12 +34,13 @@ const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
 
   const handleButtonClick = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
-    navigate("/routedetails", { 
+
+    navigate(`/routedetails`, { 
       state: {
-        home: address?.home.street,
-        destination: address?.destination.street,
+        home: address?.home,
+        destination: address?.destination,
         cinemaTitle: cinemaName,
-        movieTitle: "Titanic"
+        movieTitle: cinema.movieName,
       }, 
     });
   };
@@ -62,14 +64,15 @@ const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
           <AddressInfo
             icon="bi-circle-fill"
             iconClass="home-address-icon icon-bg-grey"
-            street={address.home.street}
-            city={address.home.city}
+            street={address?.home.street}
+            city={address?.home.city}
+            state={address?.home.state}
           />
           <AddressInfo
             icon="bi-geo-alt-fill"
             iconClass="destination-address-icon icon-bg-red"
-            street={address.destination.street}
-            city={address.destination.city}
+            street={address?.destination.street}
+            city={address?.destination.city}
           />
         </div>
       </div>
@@ -114,13 +117,13 @@ const CinemaCard = ({ cinema }: { cinema: CinemaType }) => {
   );
 };
 
-const AddressInfo = ({ icon, iconClass, street, city }: AddressInfoProps) => (
+const AddressInfo = ({ icon, iconClass, street, city, state }: AddressInfoProps) => (
   <div className="mb-2">
     <div className="d-flex align-items-center">
       <i className={`bi ${icon} ${iconClass}`}></i>
       <span className="text-muted ms-3">{street}</span>
     </div>
-    <p className="text-muted ms-5 mb-0">{city}</p>
+    <p className="text-muted ms-5 mb-0">{city} - {state}</p>
   </div>
 );
 
