@@ -1,0 +1,17 @@
+.filters-container {
+  display: grid;
+  justify-content: space-evenly; /* Acts as responsive gap */
+  gap: 0.5rem; /* Acts as minimum gap */
+}
+
+#genres-container {
+  grid-template-columns: repeat(auto-fill, 160px);
+}
+
+#ratings-container {
+  grid-template-columns: repeat(auto-fill, 75px);
+}
+
+.modal-dialog {
+  --bs-modal-width: 700px;
+}
