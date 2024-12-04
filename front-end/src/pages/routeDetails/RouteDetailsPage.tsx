@@ -7,7 +7,6 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import * as L from "leaflet";
 import "leaflet-routing-machine";
 import 'leaflet.utm';
-import proj4 from 'proj4';
 
 import { getCoordinatesLatLon } from "@/utils/getCoordinatesLatLon";
 import { AddressType, StopType } from "@/types/route";
@@ -15,16 +14,15 @@ import { AddressType, StopType } from "@/types/route";
 import Navbar from "@/components/layout/navbar/Navbar";
 import CinemaBox from "@/components/ui/cinema-box/CinemaBox";
 
-const fetchRoute = async () => {
-    const url = `http://router.project-osrm.org/route/v1/driving/-46.653000,-23.564250;-46.656500,-23.561250;-46.660000,-23.558000;-46.663000,-23.556000;-46.667000,-23.558000;-46.669000,-23.558800;-46.670000,-23.560000;-46.680000,-23.565100;-46.684000,-23.568000;-46.688000,-23.570000;-46.692000,-23.571000;-46.699000,-23.572080;-46.705000,-23.572080;-46.709800,-23.571092?overview=full&geometries=geojson`;
+const fetchRoute = async (coordinates: string) => {
+    const url = `http://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson`;
     const response = await fetch(url);
     const data = await response.json();
     return data.routes[0].geometry;
 };
 
-const addRouteToMap = async (map: L.Map) => {
-    const geometry = await fetchRoute();
-
+const addRouteToMap = async (map: L.Map, coordinates: string) => {
+    const geometry = await fetchRoute(coordinates);
     L.geoJSON(geometry, {
         style: {
             color: "#3F3F3F",
@@ -49,7 +47,7 @@ const RouteDetailsPage = () => {
     const address1 = `${home.street} - ${home.city}, ${home.state}, Brasil`
     const address2 = `${destination.street} - ${destination.city}, São Paulo, Brasil`
 
-    const [mockCinemaData, setMockCinemaData] = useState<any>(null);  // Estado para armazenar os dados
+    const [mockCinemaData, setMockCinemaData] = useState<any>(null); // Estado para armazenar os dados
 
     useEffect(() => {
         const fetchBusStops = async () => {
@@ -66,32 +64,33 @@ const RouteDetailsPage = () => {
 
                 const fetchedStops: StopType[] = response.data[0].stops.map((stop: any, index: number) => {
                     const stopUtm = L.utm({
-                        x: parseFloat(stop.longitude), // Coordenada UTM X (Easting)
-                        y: parseFloat(stop.latitude),  // Coordenada UTM Y (Northing)
-                        zone: utmCoords.zone, // Mesma zona do usuário
-                        band: utmCoords.band, // Mesma banda do usuário
-                        southHemi: utmCoords.band < 'N', // Define se está no hemisfério sul
+                        x: parseFloat(stop.latitude),
+                        y: parseFloat(stop.longitude),
+                        zone: utmCoords.zone,
+                        band: utmCoords.band,
+                        southHemi: true,
                     });
+
+                    const stopLatLng = stopUtm.latLng();
 
                     return {
                         id: index + 1,
                         name: stop.name,
-                        coordinates: [stopUtm.x, stopUtm.y], // Coordenadas convertidas
+                        coordinates: [stopLatLng.lat, stopLatLng.lng] as L.LatLngTuple,
                         type: stop.type,
                         line: stop.line,
                     };
                 });
-    
+
                 setBusStops(fetchedStops);
             } catch (err) {
                 console.error(err);
             }
         };
         fetchBusStops();
-    }, []);
+    }, [userLat, userLon, cinemaId]);
 
     const mockData = () => {
-
         const mockCinemaData = {
             movieName: movieTitle,
             cinemaName: cinemaTitle,
@@ -108,13 +107,12 @@ const RouteDetailsPage = () => {
         };
 
         return mockCinemaData;
-    }
+    };
 
     useEffect(() => {
         const data = mockData();
         setMockCinemaData(data);
     }, []);
-
 
     const mapIcon = L.icon({
         iconUrl: '/map-icon.svg',
@@ -124,34 +122,34 @@ const RouteDetailsPage = () => {
     });
 
     const fetchAndRenderMap = async () => {
-        if (!map) {
+        if (!map && busStops.length > 0) {
             const coord1 = await getCoordinatesLatLon(address1);
             const coord2 = await getCoordinatesLatLon(address2);
 
             // Inicializar o mapa no contêiner com ID "map-container"
-            const map = L.map("map-container").setView([coord1.lat, coord1.lon], 13);
-            setMap(map);
+            const mapInstance = L.map("map-container").setView([coord1.lat, coord1.lon], 13);
+            setMap(mapInstance);
 
             L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-            }).addTo(map);
+            }).addTo(mapInstance);
 
             busStops.forEach((stop) => {
                 L.marker(stop.coordinates, { icon: mapIcon })
                     .bindPopup(`<b>${stop.name}</b>`)
-                    .addTo(map)
+                    .addTo(mapInstance)
                     .on("click", () => {
-                        map.setView(stop.coordinates, 48);
+                        mapInstance.setView(stop.coordinates, 18);
                     });
             });
 
-            addRouteToMap(map);
+            const route1 = `${coord1.lon},${coord1.lat};${busStops[0]?.coordinates[1]},${busStops[0]?.coordinates[0]}`;
+            const route2 = `${busStops[busStops.length - 1]?.coordinates[1]},${busStops[busStops.length - 1]?.coordinates[0]};${coord2.lon},${coord2.lat}`; 
 
-            return () => {
-                map.remove();
-            };
+            await addRouteToMap(mapInstance, route1);
+            await addRouteToMap(mapInstance, route2);
         }
-    }
+    };
 
     const goToStop = (coordinates: L.LatLngTuple) => {
         if (map) {
@@ -160,9 +158,11 @@ const RouteDetailsPage = () => {
     };
 
     useEffect(() => {
-        fetchAndRenderMap();
-    }, []);
-
+        if (busStops.length > 0) {
+            fetchAndRenderMap();
+        }
+    }, [busStops]);
+    
     return (
         <div>
             <Navbar />
@@ -177,7 +177,7 @@ const RouteDetailsPage = () => {
                 <div id="map-container" style={{ flex: 1 }}></div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default RouteDetailsPage;
