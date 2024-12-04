@@ -13,13 +13,14 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@types/leaflet.utm": "0.0.1",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "leaflet": "^1.9.4",
-    "@types/leaflet.utm": "0.0.1",
-    "proj4": "^2.9.0",
     "leaflet-routing-machine": "^3.2.12",
+    "leaflet.utm": "^1.0.0",
+    "proj4": "^2.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0"
