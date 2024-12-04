@@ -69,4 +69,20 @@ class MovieRoutesTest {
         assertTrue(availableCinemas.isNotEmpty())
         assertEquals(HttpStatusCode.OK, response.status)
     }
+
+    @Test
+    fun cinemaSessionsIsCorrectlyReturned() = testApplication {
+        application {
+            module()
+        }
+
+        val response = client.get("/cinema/cinemark-center-norte/sessions")
+        val body = response.bodyAsText()
+        val json = Json.parseToJsonElement(body).jsonObject
+        val sessions = json["cinema sessions"]!!.jsonArray
+
+        assertNotNull(sessions)
+        assertTrue(sessions.isNotEmpty())
+        assertEquals(HttpStatusCode.OK, response.status)
+    }
 }
