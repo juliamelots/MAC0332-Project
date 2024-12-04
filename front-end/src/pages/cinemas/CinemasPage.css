@@ -1,3 +1,15 @@
 .filters {
-    gap: 4px;
+  gap: 4px;
+}
+
+h3.text-white.text-center {
+  margin-top: 10rem; 
+}
+
+.cinema-card {
+  margin-top: 10rem;
+}
+
+.space {
+  min-height: 3rem;
 }

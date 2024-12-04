@@ -21,15 +21,6 @@ const MovieInfoContent = ({ plot, directors, genre }: props) => {
                       Sinopse
                     </span>
                 </li>
-                <li className="nav-item" key={2}>
-                    <span 
-                      role="button"
-                      className={`nav-link ${activeTab === 'tabDirector' ? 'active' : ''}`}
-                      onClick={() => setActiveTab('tabDirector')}
-                    >
-                      Direção
-                    </span>
-                </li>
                 <li className="nav-item" key={3}>
                     <span 
                       role="button"
@@ -39,10 +30,20 @@ const MovieInfoContent = ({ plot, directors, genre }: props) => {
                       Gênero
                     </span>
                 </li>
+                <li className="nav-item" key={2}>
+                    <span 
+                      role="button"
+                      className={`nav-link ${activeTab === 'tabDirector' ? 'active' : ''}`}
+                      onClick={() => setActiveTab('tabDirector')}
+                    >
+                      Direção
+                    </span>
+                </li>
             </ul>
 
             <div className="tab-content mt-3">
                 {activeTab === 'tabPlot' && <div className="text-ac-white">{plot}</div>}
+                {activeTab === 'tabGenre' && <div className="text-ac-white">{genre}</div>}
                 {activeTab === 'tabDirector' && 
                     <div className="text-ac-white d-flex flex-wrap">
                         { director.map((dir, index) => (
@@ -50,7 +51,6 @@ const MovieInfoContent = ({ plot, directors, genre }: props) => {
                         )) }
                     </div>
                 }
-                {activeTab === 'tabGenre' && <div className="text-ac-white">{genre}</div>}
             </div>
         </div>
     )

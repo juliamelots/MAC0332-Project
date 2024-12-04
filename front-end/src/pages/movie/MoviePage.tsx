@@ -1,4 +1,4 @@
-import { useLocation, useParams, Link } from "react-router-dom";
+import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 
 import { MovieType } from "@/types/movie";
 
@@ -6,12 +6,33 @@ import MovieInfoHeader from "./MovieInfoHeader";
 import MovieInfoContent from "./MovieInfoContent";
 import Navbar from "@/components/layout/navbar/Navbar";
 
+import { useGeolocation } from "@/hooks/useGeolocation";
+
 import './MoviePage.css';
 
 function MoviePage() {
+  const { userLocation, getUserLocation } = useGeolocation();
+  const navigate = useNavigate();
   const movie = useLocation().state?.movie as MovieType ?? null;
-  const { title } = useParams<{ title: string }>();
+  const { movieId } = useParams<{ id: string }>();
 
+  const handleLocationAndRedirect = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+
+    try {
+      const location = await getUserLocation();
+      navigate(`/cinemas/${movie?.name}`, {
+        state: {
+          userLocation: location,
+          movieName: movie?.name,
+          movieId: movie?.id,
+        },
+      });
+    } catch (error) {
+      console.error("Erro ao obter a localização:", error);
+    }
+  };
+  
   return (
     <div>
       <div className="bg-ac-black">
@@ -32,14 +53,14 @@ function MoviePage() {
               <MovieInfoContent
                 plot={movie.synopsis}
                 directors='Não disponível.'
-                genre={movie.genre.join(', ')}
+                genre={movie.categories.join(', ')}
               />
               <div className="d-flex align-items-center">
                 <i className="bi bi-geo-alt-fill icon-geo"></i>
                 <Link 
                   className="p-3 rounded-3 btn-movie-theater"
-                  to={`/cinemas/${movie.name}`}
-                  state={{ cinemas: movie.availableCinemas }}
+                  to="#"
+                  onClick={handleLocationAndRedirect}
                 >
                   Encontre cinemas por perto
                 </Link>

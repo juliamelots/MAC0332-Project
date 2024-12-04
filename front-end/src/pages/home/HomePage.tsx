@@ -17,6 +17,7 @@ function HomePage() {
           className="btn btn-ac-black text-white mt-3 mx-auto px-4 py-2" 
           style={{ maxWidth: '250px', width: '100%' }}
           to="/movies"
+          state={{ searchInput: searchInput }}
         >
           <i className="bi bi-film me-2"></i>
           Veja todos os filmes
@@ -33,7 +34,6 @@ function HomePage() {
             searchInput={searchInput}
             setSearchInput={setSearchInput}
           />
-          {/* TODO: Make search in Home link and transfer information to Movies. */}
         </div>
       </div>
     </div>

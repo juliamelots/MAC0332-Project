@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+
+import axios from "@/services/axiosInstance";
 import Checkbox from '@/components/ui/checkbox/Checkbox';
 
 import './MoviesFilterModal.css';
@@ -9,12 +12,23 @@ interface MovieFilterModalProps {
 }
 
 const MoviesFilterModal = (props: MovieFilterModalProps) => {
-  {/* TODO: Remove constant and call back-end */}
-  const movieGenres = ['Ação', 'Aventura', 'Comédia', 'Drama', 'Terror', 'Ficção Científica', 'Fantasia', 'Suspense', 'Romance', 'Animação'];
+  const [movieGenres, setMovieGenres] = useState<string[]>([]);
   const movieRatings = ['L', '10', '12', '14', '16', '18'];
   
   const checkedGenres = new Set<string>(props.initialCheckedGenres ?? []);
   const checkedRatings = new Set<string>(props.initialCheckedRatings ?? []);
+  
+  useEffect(() => {
+    const fetchMovieGenres = async () => {
+      try {
+        const response = await axios.get(`/movie/genres`);
+        setMovieGenres(response.data.genres);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchMovieGenres();
+  }, []);
 
   const onCheckChanged = (isChecked: boolean, value: string, checkedSet: Set<string>): void => {
     if (isChecked) {
